@@ -1,0 +1,23 @@
+.app {
+  display: flex;
+}
+
+.sidebar {
+  height: 100%;
+  width: 25%;
+  transition: left 0.3s ease-in-out;
+
+}
+
+.content {
+  width: 75%;
+}
+
+
+@media screen and (max-width: 767px) {
+  .sidebar {
+    width: 90%;
+    position: absolute;
+    height: 100%;
+  }
+}

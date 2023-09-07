@@ -1,0 +1,6 @@
+.logo {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}

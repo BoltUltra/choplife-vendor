@@ -3,16 +3,31 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { OrdersComponent } from './orders/orders.component';
+import { MenuComponent } from './menu/menu.component';
+import { FoodComponent } from './food/food.component';
+import { PaymentComponent } from './payment/payment.component';
+import { SalesReportComponent } from './sales-report/sales-report.component';
+import { SettlementsComponent } from './settlements/settlements.component';
+import { SettingsComponent } from './settings/settings.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { OverviewComponent } from './overview/overview.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SidebarComponent,
+    OrdersComponent,
+    MenuComponent,
+    FoodComponent,
+    PaymentComponent,
+    SalesReportComponent,
+    SettlementsComponent,
+    SettingsComponent,
+    OverviewComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
