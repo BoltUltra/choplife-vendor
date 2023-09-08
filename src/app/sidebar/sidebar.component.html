@@ -1,7 +1,28 @@
-<div>
-  <div class="logo">
+<!doctype html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" />
+</head>
+
+<body class="md:h-screen md:block px-5 py-10 border-r-2 border-gray-300 overflow-y-scroll sidebar shadow-md">
+  <div class="flex flex-col items-end">
     <img src="../../assets/images/logo.svg" alt="">
-    <button class="btn">Vendor</button>
+    <span class="bg-primary text-sm px-2 rounded-3xl uppercase font-bold">Vendor</span>
   </div>
-  <h1>Sidebar Works!</h1>
-</div>
+
+  <nav class="mt-10">
+    <ul class="space-y-1">
+      <li *ngFor="let item of navigationItems" class="py-3 hover px-3 rounded-md flex items-center space-x-3 text-sm">
+        <img [src]="item.icon" alt="{{ item.text }}" class="w-7">
+        <a [routerLink]="item.route">{{ item.text }}</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Add this to your sidebar component's HTML -->
+  <i (click)="closeSidebar()" class="fa-duotone fa-x fa-xl md:hidden" style="color: #C1CF65;"></i>
+
+</body>
+
+</html>

@@ -12,7 +12,8 @@ import { SettlementsComponent } from './settlements/settlements.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { OverviewComponent } from './overview/overview.component';
-
+import { HeaderComponent } from './header/header.component';
+import { SidebarService } from 'src/lib/sidebar.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,9 +26,10 @@ import { OverviewComponent } from './overview/overview.component';
     SettlementsComponent,
     SettingsComponent,
     OverviewComponent,
+    HeaderComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
-  providers: [],
+  providers: [SidebarService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
