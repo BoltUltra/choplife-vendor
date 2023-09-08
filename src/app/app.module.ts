@@ -13,7 +13,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { OverviewComponent } from './overview/overview.component';
 import { HeaderComponent } from './header/header.component';
-import { SidebarService } from 'src/lib/sidebar.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +29,7 @@ import { SidebarService } from 'src/lib/sidebar.service';
     HeaderComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
-  providers: [SidebarService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
