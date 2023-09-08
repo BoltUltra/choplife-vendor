@@ -1,8 +1,9 @@
-<main class="app">
-  <div class="sidebar">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" />
+<main class="md:flex md:space-x-5 body">
+  <div class="md:w-1/4 w-11/12">
     <app-sidebar></app-sidebar>
   </div>
-  <div class="content">
+  <div class="md:w-3/4 md:py-10 md:pr-10">
     <router-outlet></router-outlet>
   </div>
 </main>
