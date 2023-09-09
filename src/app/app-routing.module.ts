@@ -8,8 +8,10 @@ import { SettlementsComponent } from './settlements/settlements.component';
 import { SalesReportComponent } from './sales-report/sales-report.component';
 import { PaymentComponent } from './payment/payment.component';
 import { OverviewComponent } from './overview/overview.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
+  { path: 'login', component: LoginComponent, title: 'Vendor | Login' },
   {
     path: '',
     component: OverviewComponent,
