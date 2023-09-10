@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-settings',
@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./settings.component.css']
 })
 export class SettingsComponent {
+  selectedPage: string | null = null;
+
+  selectPage(page: string): void {
+    this.selectedPage = page;
+  }
 
 }

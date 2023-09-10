@@ -1,1 +1,17 @@
-<p>settings works!</p>
+<app-header>
+    <p>Settings</p>
+  </app-header>
+<section>
+    <nav>
+        <ul class="space-y-1">
+            <li (click)="selectPage('Photos')" class="py-3 hover px-3 rounded-md flex items-center space-x-3 text-base">Photos</li>
+            <li (click)="selectPage('Personal Details')" class="py-3 hover px-3 rounded-md flex items-center space-x-3 text-base">Personal Details</li>
+            <li (click)="selectPage('Security')" class="py-3 hover px-3 rounded-md flex items-center space-x-3 text-base">Security</li>
+            <li (click)="selectPage('Bank Information')" class="py-3 hover px-3 rounded-md flex items-center space-x-3 text-base">Bank Information</li>
+        </ul>
+    </nav>
+    <div *ngIf="selectedPage" class="selected-page">
+        <app-pages [page]="selectedPage"></app-pages>
+      </div>
+</section>
+

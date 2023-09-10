@@ -14,6 +14,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { OverviewComponent } from './overview/overview.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
+import { PagesComponent } from './settings/pages/pages.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { LoginComponent } from './login/login.component';
     OverviewComponent,
     HeaderComponent,
     LoginComponent,
+    PagesComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
