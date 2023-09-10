@@ -13,7 +13,9 @@ import { SettingsComponent } from './settings/settings.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { OverviewComponent } from './overview/overview.component';
 import { HeaderComponent } from './header/header.component';
-import { SidebarService } from 'src/lib/sidebar.service';
+import { LoginComponent } from './login/login.component';
+import { PagesComponent } from './settings/pages/pages.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,9 +29,11 @@ import { SidebarService } from 'src/lib/sidebar.service';
     SettingsComponent,
     OverviewComponent,
     HeaderComponent,
+    LoginComponent,
+    PagesComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
-  providers: [SidebarService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
