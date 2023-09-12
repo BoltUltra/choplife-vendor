@@ -1,1 +1,98 @@
-<p>orders works!</p>
+<app-header>
+    Order Menu
+</app-header>
+
+
+<section>
+    <div class="container">
+
+        <div class="d-flex flex-col">
+
+            <div class="shadow mt-2 rounded-3 " style="background-color:rgba(242, 255, 205, 1);">
+                <div class="d-flex align-items-center">
+                    <img src="../../assets/images/YoPrint-Order-Management-System 1.png" alt="" class="imgup">
+
+                    <p class="text-start ms-4">ChopLife’s <span class="fw-semibold">Order Management System.</span> A tool built to help <br>vendors keep track of the orders and manage the entire order 
+                        <br>process efficiently.</p>
+
+
+                    <div class="shadow-none mb-4 bg-tertiary border rounded-4 ms-auto mx-5 mt-4" style="width: 15rem !important;">
+                        <div class="row">
+                          <div
+                            class="col-6 rounded-4"
+                            [ngClass]="{ 'bg-primary': activeform === 'verification' }"
+                          >
+                            <p
+                              class="text-center mt-1 textsize py-1"
+                              (click)="activeform = 'verification'"
+                            >
+                              Table
+                            </p>
+                          </div>
+            
+                          <div
+                            class="col-6 rounded-4"
+                            [ngClass]="{ active: activeform === 'vendor' }"
+                          >
+                            <p
+                              class="text-center mt-1 textsize text-muted py-1 text-nowrap" 
+                              (click)="activeform = 'vendor'"
+                            >
+                              Kitchen View
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+
+
+            <div class="border-box mt-3">
+                <div class="row">
+                  <div class="col-lg-4 col-sm-6" *ngFor="let items of box">
+                    <div class="shadow mb-5 p-3 bg-body-tertiary rounded-3" style="background-image: linear-gradient(white 86%,#e0e9a8 5%,#e0e9a8); height: 12rem;">
+                      <div class="card-body">
+                        <div class="d-flex">
+                          <div class="d-flex flex-col">
+                            <h5 class="card-title">{{items.text}}</h5>
+          
+                            <h3 class="fw-semibold f10">{{items.number}}</h3>
+                            
+                          </div>
+                          
+                          <div class="ms-auto">
+
+                            <div
+                              class="text-center paddedsize mb-5 rounded-5"
+                              style="background-color: #f2ffcd"
+                            >
+                              <i class="fa-light fa-bell fa-xl"></i>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="d-flex align-items-center marginsize">
+                          <div class="d-flex flex-col">
+                            <p>{{items.new}}</p>
+                            <p class="fw-semibold">{{items.count}}</p>
+                          </div>
+                          <div class="line ms-5">
+                            <img src="../../assets/images/Vector 3146.svg" alt="" class="img-fluid">
+                          </div>
+                          <div class="d-flex flex-col ms-4">
+                            <p>{{items.new2}}</p>
+                            <p class="fw-semibold">{{items.count2}}</p>
+                          </div>
+
+                        </div>
+                        <div class="updated ">
+                          <p class="fw-light update">{{items.updates}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</section>
