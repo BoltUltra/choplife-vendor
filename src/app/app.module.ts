@@ -18,6 +18,7 @@ import { SettlementsTableComponent } from './settlements-table/settlements-table
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { PagesComponent } from './settings/pages/pages.component';
+import { FoodListTableComponent } from './food-list-table/food-list-table.component';
 
 import { DataTablesModule } from 'angular-datatables';
 // import { ChartsModule } from 'ng2-charts';
@@ -39,6 +40,7 @@ import { DataTablesModule } from 'angular-datatables';
     SettlementsTableComponent,
     LoginComponent,
     PagesComponent,
+    FoodListTableComponent,
   ],
   imports: [
     BrowserModule,
