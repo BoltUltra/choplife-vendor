@@ -18,10 +18,20 @@ body{
     height: 3.5rem;
 }
 
-
+.inside{
+    position: absolute;
+    margin-top: -10rem;
+    margin-left: 6rem;
+}
 
 /* fonts */
 
 .f10{
     font-size: 30px;
+}
+
+
+.btn-primary{
+    background: #C1CF65 !important;
+    border-color: #C1CF65 !important;
 }

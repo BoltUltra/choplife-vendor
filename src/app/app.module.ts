@@ -14,6 +14,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { OverviewComponent } from './overview/overview.component';
 import { HeaderComponent } from './header/header.component';
 import { SidebarService } from 'src/lib/sidebar.service';
+import { DataTablesModule } from 'angular-datatables';
 // import { ChartsModule } from 'ng2-charts';
 // import { ChartsModule } from 'ng2-charts';
 
@@ -31,7 +32,7 @@ import { SidebarService } from 'src/lib/sidebar.service';
     OverviewComponent,
     HeaderComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule,],
+  imports: [BrowserModule, AppRoutingModule,DataTablesModule],
   providers: [SidebarService],
   bootstrap: [AppComponent],
 })
