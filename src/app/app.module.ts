@@ -18,6 +18,7 @@ import { SettlementsTableComponent } from './settlements-table/settlements-table
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { PagesComponent } from './settings/pages/pages.component';
+import { FoodListTableComponent } from './food-list-table/food-list-table.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { PagesComponent } from './settings/pages/pages.component';
     SettlementsTableComponent,
     LoginComponent,
     PagesComponent,
+    FoodListTableComponent,
   ],
   imports: [
     BrowserModule,
