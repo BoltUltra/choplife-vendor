@@ -1,3 +1,7 @@
+<app-header>
+  <p>Payment</p>
+</app-header>
+
 <section class="payment-holder">
     <div class="payment-container flex flex-col p-3">
         <h2 class="text-xl font-medium mb-3">Balance</h2>
@@ -35,60 +39,12 @@
         <canvas id="barChart" width="400" height="300"></canvas>
       </div>      
 </section> -->
-<section class="chart-section">
-    <div class="block-1"></div>
+<section class="chart-section md:ml-5 md:mr-10 mx-3 mt-6">
+    <div class="block-1 grid grid-cols-3 gap-3"></div>
     <div class="block-2"></div>
 </section>
 <section class="table-holder">
-    <div class="table-header">
-        <span class=" text-xl font-medium">Transaction</span>
-        <div class="search-input">
-          <input type="text" placeholder="Search">
-          <i class="fas fa-search"></i>
-        </div>
-        <div class="button-con">
-            <button class="filter-button">
-                Filter By: Date <i class="fas fa-caret-down"></i>
-              </button>
-              <button class="export-button">Export</button>
-        </div>
-      </div>
-      <table class="transaction-table">
-        <thead>
-          <tr>
-            <th>Transaction ID</th>
-            <th>Payment Type</th>
-            <th>Amount</th>
-            <th>Date</th>
-            <th>Description</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>#ERTY567890</td>
-                <td>Card</td>
-                <td>₦45,050.00</td>
-                <td>23 Aug, 2023</td>
-                <td>Random Text</td>
-                <td>Initiated</td>
-              </tr>
-              <tr>
-                <td>#ERTY567890</td>
-                <td>Transfer</td>
-                <td>₦45,050.00</td>
-                <td>23 Aug, 2023</td>
-                <td>Random Text</td>
-                <td>Completed</td>
-              </tr>
-              <tr>
-                <td>#ERTY567890</td>
-                <td>Card</td>
-                <td>₦45,050.00</td>
-                <td>23 Aug, 2023</td>
-                <td>Random Text</td>
-                <td>Completed</td>
-              </tr>
-        </tbody>
-      </table>
+  <div class="mt-10 bg-white rounded-xl">
+    <app-payment-table></app-payment-table>
+  </div>
 </section>
