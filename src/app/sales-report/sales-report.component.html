@@ -1,1 +1,152 @@
-<p>sales-report works!</p>
+<head>
+  <link rel="stylesheet" href="https://bit.ly/stylesheeet" />
+</head>
+
+<app-header>
+  <p>Sales Report</p>
+</app-header>
+
+<div class="flex justify-end">
+  <div class="flex items-center space-x-3 px-3 py-2 bg-white rounded-md text-sm justify-end md:ml-5 md:mr-10 mx-3">
+    <i class="fa-light fa-calendar fa-xl"></i>
+    <select name="time" id="time" class="bg-transparent">
+      <option value="jun-july" selected>20 Jun, 2022 - 20 Jul, 2022</option>
+      <option value="jun-july" selected>20 Jun, 2022 - 20 Jul, 2022</option>
+      <option value="jun-july" selected>20 Jun, 2022 - 20 Jul, 2022</option>
+      <option value="jun-july" selected>20 Jun, 2022 - 20 Jul, 2022</option>
+      <option value="jun-july" selected>20 Jun, 2022 - 20 Jul, 2022</option>
+    </select>
+  </div>
+</div>
+<div class="md:ml-5 md:mr-10 mx-3 mt-6">
+  <div class="grid grid-cols-2 gap-3">
+    <div class="grid grid-cols-2 gap-3">
+      <div class="bg-white p-3 rounded-xl space-y-3">
+        <div class="flex">
+          <p class="bg-primary-light p-3 rounded-full h-10 w-10 flex items-center justify-center">
+            <i class="fa-light fa-arrow-up"></i>
+          </p>
+        </div>
+        <p class="text-sm font-semibold">Total Sales</p>
+        <p class="text-2xl font-bold">N500,000.00</p>
+        <div class="flex items-center text-xs space-x-2">
+          <div class="text-green-600 flex items-center space-x-1 font-bold">
+            <i class="fa-light fa-arrow-up-right"></i>
+            <span>32%</span>
+          </div>
+          <span class="text-gray-400">from June</span>
+        </div>
+      </div>
+      <div class="bg-white p-3 rounded-xl space-y-3">
+        <div class="flex">
+          <p class="bg-primary-light p-3 rounded-full h-10 w-10 flex items-center justify-center">
+            <i class="fa-light fa-arrow-up"></i>
+          </p>
+        </div>
+        <p class="text-sm font-semibold">Avg. Order Value</p>
+        <p class="text-2xl font-bold">N6,600.00</p>
+        <div class="flex items-center text-xs space-x-2">
+          <div class="text-red-600 flex items-center space-x-1 font-bold">
+            <i class="fa-light fa-arrow-down-right"></i>
+            <span>18%</span>
+          </div>
+          <span class="text-gray-400">from June</span>
+        </div>
+      </div>
+      <div class="bg-white p-3 rounded-xl space-y-3">
+        <div class="flex">
+          <p class="bg-primary-light p-3 rounded-full h-10 w-10 flex items-center justify-center">
+            <i class="fa-light fa-arrow-up"></i>
+          </p>
+        </div>
+        <p class="text-sm font-semibold">Total Revenue</p>
+        <p class="text-2xl font-bold">N500,000.00</p>
+        <div class="flex items-center text-xs space-x-2">
+          <div class="text-red-600 flex items-center space-x-1 font-bold">
+            <i class="fa-light fa-arrow-down-right"></i>
+            <span>18%</span>
+          </div>
+          <span class="text-gray-400">from June</span>
+        </div>
+      </div>
+      <div class="bg-white p-3 rounded-xl space-y-3">
+        <div class="flex">
+          <p class="bg-primary-light p-3 rounded-full h-10 w-10 flex items-center justify-center">
+            <i class="fa-light fa-arrow-up"></i>
+          </p>
+        </div>
+        <p class="text-sm font-semibold">Total Order</p>
+        <p class="text-2xl font-bold">513</p>
+        <div class="flex items-center text-xs space-x-2">
+          <div class="text-red-600 flex items-center space-x-1 font-bold">
+            <i class="fa-light fa-arrow-down-right"></i>
+            <span>18%</span>
+          </div>
+          <span class="text-gray-400">from June</span>
+        </div>
+      </div>
+      <div class="col-span-2 bg-white rounded-xl grid grid-cols-2 p-3 gap-3">
+        <div></div>
+        <div>
+          <h4 class="text-sm font-semibold">Payment Analysis</h4>
+          <div class="mt-4 space-y-3 text-sm">
+            <div class="flex items-center w-full justify-between">
+              <div class="flex items-center space-x-3">
+                <div class="h-3 w-3 rounded-full bg-base"></div>
+                <p>Card</p>
+              </div>
+              <p>N1,200,000.00</p>
+            </div>
+            <div class="flex items-center w-full justify-between">
+              <div class="flex items-center space-x-3">
+                <div class="h-3 w-3 rounded-full bg-primary"></div>
+                <p>Transfer</p>
+              </div>
+              <p>N3,800,000.00</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-rows-3 gap-3">
+      <div class="bg-white rounded-xl p-3 row-span-2">
+        <h4 class="font-semibold mb-6">Revenue Trend</h4>
+        <div id="chart" class="">chart</div>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div class="bg-white p-3 rounded-xl space-y-3">
+          <div class="flex">
+            <p class="bg-primary-light p-3 rounded-full h-10 w-10 flex items-center justify-center">
+              <i class="fa-light fa-arrow-up"></i>
+            </p>
+          </div>
+          <p class="text-sm font-semibold">Top Selling</p>
+          <p class="text-2xl font-bold">Kunu Aya</p>
+          <div class="text-xs">
+            <span class="text-gray-400">700 Units sold</span>
+          </div>
+        </div>
+        <div class="bg-white p-3 rounded-xl space-y-3">
+          <div class="flex">
+            <p class="bg-primary-light p-3 rounded-full h-10 w-10 flex items-center justify-center">
+              <i class="fa-light fa-arrow-up"></i>
+            </p>
+          </div>
+          <p class="text-sm font-semibold">Customer Insights</p>
+          <p class="text-2xl font-bold">450 / 30</p>
+          <div class="flex items-center text-xs space-x-2">
+            <div class="text-red-600 flex items-center space-x-1 font-bold">
+              <i class="fa-light fa-arrow-down-right"></i>
+              <span>18%</span>
+            </div>
+            <span class="text-gray-400">from June</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-4 bg-white rounded-xl p-3">
+    <p>Sales Summary</p>
+  </div>
+</div>

@@ -18,6 +18,11 @@ body{
     height: 3.5rem;
 }
 
+
+.outside{
+    position: relative;
+}
+
 .inside{
     position: absolute;
     margin-top: -10rem;
