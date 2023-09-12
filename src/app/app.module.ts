@@ -16,6 +16,8 @@ import { OverviewComponent } from './overview/overview.component';
 import { HeaderComponent } from './header/header.component';
 import { SettlementsTableComponent } from './settlements-table/settlements-table.component';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { PagesComponent } from './settings/pages/pages.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { FormsModule } from '@angular/forms';
     OverviewComponent,
     HeaderComponent,
     SettlementsTableComponent,
+    LoginComponent,
+    PagesComponent,
   ],
   imports: [
     BrowserModule,

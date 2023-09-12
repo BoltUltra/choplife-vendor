@@ -1,0 +1,124 @@
+<div class="side-content">
+    <ng-container *ngIf="page === 'Photos'">
+      <!-- Content for the 'Photos' page -->
+      <div class="photos">
+        <h2 class="text-3x1 font-bold mb-3">Personal Details</h2>
+        <p>File smaller than 10MB and at least 800px by 800px.</p>
+        <p class="mb-4">This image will be shown on the vendors' directory and your profile page.</p>
+        <div class="rectangle">
+            <div class="buttons mb-3">
+                <button class="upload-button">Upload Photo</button>
+                <button class="delete-button"><img src="assets/images/trash.svg"></button>
+              </div>
+              <div class="circle-frame">
+                <img src="assets/images/login.png" alt="Your Image"> 
+                <button class="edit-button"><i class="fas fa-pen"></i></button>
+              </div>
+        </div>
+        <div class="button text-right mt-11">
+            <button type="submit">Save changes</button>
+            <a routerLink=""><button class="profile-btn">View my profile</button></a>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="page === 'Personal Details'">
+      <!-- Content for the 'Personal Details' page -->
+      <h2 class="text-3x1 font-bold mb-3">Personal Details</h2>
+<form>
+  <div class="form-row flex flex-wrap mb-5">
+    <div class="form-group">
+        <label for="firstName">First Name*</label>
+        <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+      </div>
+      <div class="form-group">
+        <label for="brandName">Brand Name*</label>
+        <input type="text" id="brandName" name="brandName" placeholder="Enter your brand name" required>
+      </div>
+  </div>
+  <div class="form-row flex flex-wrap mb-5">
+    <div class="form-group">
+        <label for="lastName">Last Name*</label>
+        <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required>
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" required>
+      </div>
+  </div>
+  <div class="form-row flex flex-wrap mb-5">
+    <div class="form-group">
+        <label for="gender">Gender*</label>
+        <select id="gender" name="gender">
+          <option>-- Please select --</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="dateOfBirth">Date of Birth</label>
+        <div class="date-picker">
+          <input type="date" id="dateOfBirth" name="dateOfBirth" data-placeholder="-- Please select --" onfocus="(this.type='date')" required>
+        </div>
+      </div>
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+  </div>
+  <div class="form-group">
+    <label for="address">Address</label>
+    <textarea id="address" name="address" rows="4" placeholder="Enter your address"></textarea>
+  </div>
+  <div class="button-container mt-5 text-right">
+    <button type="submit">Save Changes</button>
+  </div>
+</form>
+    </ng-container>
+    <ng-container *ngIf="page === 'Security'">
+      <!-- Content for the 'Security' page -->
+      <h2 class="text-3x1 font-bold mb-3">Security</h2>
+      <form>
+        <div class="form-row flex flex-wrap mb-5">
+          <div class="form-group">
+              <label for="newPassword">Enter new password</label>
+              <input type="password" id="newPassword" name="newPassword" placeholder="*****" required>
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword">Confirm new password</label>
+              <input type="password" id="confirmPassword" name="confirmPassword" placeholder="*****" required>
+            </div>
+        </div>
+        <div class="button-container">
+            <button type="submit">Change Password</button>
+          </div>
+        </form>
+    </ng-container>
+    <ng-container *ngIf="page === 'Bank Information'">
+      <!-- Content for the 'Bank Information' page -->
+      <h2 class="text-3x1 font-bold mb-3">Bank Information</h2>
+      <div class="form-row flex flex-wrap mb-5">
+        <div class="form-group">
+            <label for="firstName">Account Number*</label>
+            <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+          </div>
+          <div class="form-group">
+            <label for="brandName">Account Name*</label>
+            <input type="text" id="brandName" name="brandName" placeholder="Enter your brand name" required>
+          </div>
+      </div>
+      <div class="form-group">
+        <label for="bank">Bank</label>
+        <select id="bank" name="bank">
+          <option>-- Please select --</option>
+          <option value="access">Access Bank</option>
+          <option value="first">First Bank</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="button-container">
+        <button type="submit">Save Changes</button>
+      </div>
+    </ng-container>
+  </div>
+  
