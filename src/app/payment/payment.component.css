@@ -1,0 +1,136 @@
+.payment-holder {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+    gap: 3.5rem;
+    width: 100%;
+    padding: 10px 4% 20px;
+}
+  .payment-container {
+    max-width: 320px;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    position: relative;
+    background-color: #fff;
+    cursor: pointer;
+    color: #2d2d2d;
+  }
+
+  .payment-container:hover {
+    background-color: #5C7E64;
+    color: #fff;
+  }
+  
+  .payment-container .item-icon {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background-color: #F2FFCD;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 20px;
+  }
+
+  .chart-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+    gap: 3.5rem;
+    width: 100%;
+    padding: 10px 4% 20px;
+  } 
+  
+  .block-1, .block-2 {
+    background-color: #5C7E64;
+    width: 500px;
+    height: 208px;
+  }
+
+  .block-2 {
+    width: 450px;
+  }
+
+  .table-holder {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 4% 0px;
+  }
+
+  .table-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #fff;
+    max-width: 100%;
+  }
+  
+  .search-input {
+    display: flex;;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px 0px;
+    width: 350px;
+    /* align-items: center; */
+  }
+  
+  .search-input input {
+    flex: 1;
+    border: none;
+    outline: none;
+  }
+  
+  .search-input i {
+    margin-right: 10px;
+    cursor: pointer;
+  }
+
+  .button-con {
+    display: flex;
+  }
+  
+  .filter-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #2d2d2d;
+  }
+
+  .filter-button i {
+    margin-left: 15px;
+  }
+  
+  .export-button {
+    background-color: #5C7E64;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 30px;
+  }
+  
+  .transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .transaction-table th, .transaction-table td {
+    /* border: 1px solid #ccc; */
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .transaction-table th {
+    background-color: #ccc;
+  }
+  
+  

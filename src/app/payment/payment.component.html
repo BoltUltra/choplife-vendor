@@ -1,1 +1,94 @@
-<p>payment works!</p>
+<section class="payment-holder">
+    <div class="payment-container flex flex-col p-3">
+        <h2 class="text-xl font-medium mb-3">Balance</h2>
+        <div class="text-2xl font-medium mt-2.5 mb-3.5">₦<span>304,400.00</span></div>
+        <div class="item-icon">
+            <img src="assets/images/bell.svg" alt="">
+          </div>
+          <div class="line-chart  mt-3.5">
+            <img src="assets/images/green-line.svg" alt="">
+          </div>
+    </div>
+    <div class="payment-container flex flex-col p-3">
+        <h2 class="text-xl font-medium mb-3">Revenue</h2>
+        <div class="text-2xl font-medium mt-2.5 mb-3.5">₦<span>304,400.00</span></div>
+        <div class="item-icon">
+            <img src="assets/images/bell.svg" alt="">
+          </div>
+          <div class="line-chart  mt-3.5">
+            <img src="assets/images/green-line.svg" alt="">
+          </div>
+    </div>
+    <div class="payment-container flex flex-col p-3">
+        <h2 class="text-xl font-medium mb-3">Net Earning</h2>
+        <div class="text-2xl font-medium mt-2.5 mb-3.5">₦<span>304,400.00</span></div>
+        <div class="item-icon">
+            <img src="assets/images/bell.svg" alt="">
+          </div>
+          <div class="line-chart  mt-3.5">
+            <img src="assets/images/green-line.svg" alt="">
+          </div>
+    </div>    
+</section>
+<!-- <section class="chart-section">
+    <div style="width: 80%; margin: 0 auto;">
+        <canvas id="barChart" width="400" height="300"></canvas>
+      </div>      
+</section> -->
+<section class="chart-section">
+    <div class="block-1"></div>
+    <div class="block-2"></div>
+</section>
+<section class="table-holder">
+    <div class="table-header">
+        <span class=" text-xl font-medium">Transaction</span>
+        <div class="search-input">
+          <input type="text" placeholder="Search">
+          <i class="fas fa-search"></i>
+        </div>
+        <div class="button-con">
+            <button class="filter-button">
+                Filter By: Date <i class="fas fa-caret-down"></i>
+              </button>
+              <button class="export-button">Export</button>
+        </div>
+      </div>
+      <table class="transaction-table">
+        <thead>
+          <tr>
+            <th>Transaction ID</th>
+            <th>Payment Type</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>#ERTY567890</td>
+                <td>Card</td>
+                <td>₦45,050.00</td>
+                <td>23 Aug, 2023</td>
+                <td>Random Text</td>
+                <td>Initiated</td>
+              </tr>
+              <tr>
+                <td>#ERTY567890</td>
+                <td>Transfer</td>
+                <td>₦45,050.00</td>
+                <td>23 Aug, 2023</td>
+                <td>Random Text</td>
+                <td>Completed</td>
+              </tr>
+              <tr>
+                <td>#ERTY567890</td>
+                <td>Card</td>
+                <td>₦45,050.00</td>
+                <td>23 Aug, 2023</td>
+                <td>Random Text</td>
+                <td>Completed</td>
+              </tr>
+        </tbody>
+      </table>
+</section>
