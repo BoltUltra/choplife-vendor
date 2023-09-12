@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  font-family: 'Commissioner', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 20px 4px 10px #f3eee7;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C1CF65;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C1CF65;
+}

@@ -1,7 +1,44 @@
-<div>
-  <div class="logo">
-    <img src="../../assets/images/logo.svg" alt="">
-    <button class="btn">Vendor</button>
+<!doctype html>
+<html>
+
+<head>
+
+  <head>
+    <link rel="stylesheet" href="https://bit.ly/stylesheeet" />
+  </head>
+
+  <div class="bg-white px-6 py-3 flex items-center justify-between rounded-md mb-6">
+    <p>Menu Module</p>
+    <div class="flex items-center space-x-5">
+      <div class="">
+        <i class="fa-light fa-bell fa-xl"></i>
+      </div>
+      <div class="flex items-center space-x-5">
+        <i class="fa-duotone fa-user fa-xl" style="color: #C1CF65;"></i>
+        <p>Sharafadeen</p>
+      </div>
+    </div>
   </div>
-  <h1>Sidebar Works!</h1>
-</div>
+</head>
+
+<body class="md:h-screen md:block px-5 py-10 border-r-2 border-gray-300 overflow-y-scroll sidebar shadow-md">
+  <div class="flex flex-col items-end">
+    <img src="../../assets/images/logo.svg" alt="">
+    <span class="bg-primary text-sm px-2 rounded-3xl uppercase font-bold">Vendor</span>
+  </div>
+
+  <nav class="mt-10">
+    <ul class="space-y-1">
+      <li *ngFor="let item of navigationItems" class="py-3 hover px-3 rounded-md flex items-center space-x-3 text-sm">
+        <img [src]="item.icon" alt="{{ item.text }}" class="w-7">
+        <a [routerLink]="item.route">{{ item.text }}</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Add this to your sidebar component's HTML -->
+  <i (click)="closeSidebar()" class="fa-duotone fa-x fa-xl md:hidden" style="color: #C1CF65;"></i>
+
+</body>
+
+</html>

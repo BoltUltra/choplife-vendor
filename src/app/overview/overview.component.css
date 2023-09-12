@@ -1,0 +1,27 @@
+body{
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.header{
+    overflow: hidden !important;
+    height: 100vh;
+}
+
+
+.paddedsize{
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+    margin-bottom: 0rem;
+    padding-top: 0.9rem;
+    padding-bottom: 0.4rem;
+    height: 3.5rem;
+}
+
+
+
+/* fonts */
+
+.f10{
+    font-size: 30px;
+}

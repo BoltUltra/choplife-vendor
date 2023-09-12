@@ -1,0 +1,17 @@
+<head>
+  <link rel="stylesheet" href="https://bit.ly/stylesheeet" />
+</head>
+
+<div class="bg-white px-6 py-3 flex items-center justify-between rounded-md mb-6 md:mx-0 m-3">
+  <ng-content></ng-content>
+  <div class="flex items-center space-x-5">
+    <div class="">
+      <i class="fa-light fa-bell fa-xl"></i>
+    </div>
+    <div class="flex items-center space-x-5">
+      <i class="fa-duotone fa-user fa-xl" style="color: #C1CF65;"></i>
+      <p class="md:block hidden">Sharafadeen</p>
+      <i (click)="toggleSidebar()" class="fa-duotone fa-bars fa-xl md:hidden" style="color: #C1CF65;"></i>
+    </div>
+  </div>
+</div>
