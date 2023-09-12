@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarService } from 'src/lib/sidebar.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -38,7 +39,12 @@ export class SidebarComponent implements OnInit {
     },
     { text: 'Logout', route: '/', icon: '../../assets/images/logout.svg' },
   ];
-  constructor(private sidebarService: SidebarService) {}
+  constructor(private sidebarService: SidebarService, private router: Router) {}
+
+  isRouteActive(routePath: string): boolean {
+    return this.router.isActive(routePath, true);
+  }
+
   ngOnInit() {
     // Subscribe to changes in the sidebar state
     this.sidebarService.isOpen$.subscribe((isOpen) => {

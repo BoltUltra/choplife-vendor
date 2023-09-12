@@ -29,7 +29,8 @@
 
   <nav class="mt-10">
     <ul class="space-y-1">
-      <li *ngFor="let item of navigationItems" class="py-3 hover px-3 rounded-md flex items-center space-x-3 text-sm">
+      <li *ngFor="let item of navigationItems" class="py-3 hover px-3 rounded-md flex items-center space-x-3 text-sm"
+        [ngClass]="{ 'active-route': isRouteActive(item.route) }">
         <img [src]="item.icon" alt="{{ item.text }}" class="w-7">
         <a [routerLink]="item.route">{{ item.text }}</a>
       </li>
