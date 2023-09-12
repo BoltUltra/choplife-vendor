@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 * {
   font-family: 'Commissioner', sans-serif;
@@ -20,4 +21,20 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #C1CF65;
+}
+
+.bg-primary {
+  background-color: #C1CF65 !important;
+}
+
+.bg-primary-light {
+  background-color: #F2FFCD !important;
+}
+
+.bg-base {
+  background-color: #5C7E64 !important;
+}
+
+.active-route {
+  background-color: #C1CF65 !important;
 }
