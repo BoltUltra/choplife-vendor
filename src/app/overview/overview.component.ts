@@ -44,6 +44,9 @@ export class OverviewComponent implements OnInit {
   ngOnInit(): void {
     this.RenderChart();
     this.dougnutchart();
+
+
+    
   }
 
   RenderChart(){
@@ -87,5 +90,20 @@ export class OverviewComponent implements OnInit {
   
   });
   }
+
+
+  // filterData(): void {
+  //   const query = this.searchQuery.trim().toLowerCase();
+  //   if (query) {
+  //     this.data = this.data.filter((item) =>
+  //       Object.values(item)
+  //         .map((value) => String(value).toLowerCase())
+  //         .some((value) => value.includes(query))
+  //     );
+  //   } else {
+  //     this.data = this.data;
+  //   }
+  //   this.currentPage = 1;
+  // }
 
 }
