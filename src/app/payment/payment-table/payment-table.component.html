@@ -4,15 +4,12 @@
   
   <div class="p-3 flex items-center justify-between">
     <h3 class="font-semibold">Transactions</h3>
-    <div class="flex items-center space-x-2 text-sm bg-gray-100 p-3 rounded-xl">
+    <div class="flex items-center space-x-2.5 text-sm bg-gray-100 py-3 px-3 rounded-xl">
       <i class="fa-duotone fa-magnifying-glass fa-xl"></i>
       <input class="bg-transparent focus:outline-none" type="text" [(ngModel)]="searchQuery" (input)="filterData()"
         placeholder="Search..." />
     </div>
-        <div class="button-con">
-            <!-- <button class="filter-button">
-                Filter By: Date <i class="fas fa-caret-down"></i>
-              </button> -->
+        <div class="button-con flex p-3">
               <div class="d-flex shadow-none p-2 bg-body-tertiary rounded-6 bg-body-tertiary mx-4 mt-4" style="width: 15rem;">
 
                 <select class="form-select bg-body-tertiary">
@@ -23,7 +20,7 @@
                 </select>
               </div>
 
-              <button type="button" class="btn btn-primary mt-4">Export</button>
+              <button type="button" class="btn btn-primary ml-4 mt-4">Export</button>
         </div>
   </div>
   
@@ -101,6 +98,9 @@
           <p class="flex items-center justify-between">
             <span>Description</span> <span class="text-right">{{ modalData.description }}</span>
           </p>
+          <div class="flex items-center justify-between mt-72">
+            <button class="btn rounded-md p-1.5">Confirm Payment</button> <button class="btn btnn text-right rounded-md p-1.5">cancel</button>
+          </div>
         </div>
         <!-- Close button for the modal -->
         <button (click)="closeModal()" class="absolute top-5 right-5"><i class="fas fa-x fa-sm"></i></button>

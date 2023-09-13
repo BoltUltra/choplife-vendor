@@ -12,8 +12,12 @@
     z-index: 9999;
   }
   
-  .button-con {
-    display: flex;
+  .btn {
+    background-color: #F2FFCD;
+  }
+
+  .btnn {
+    background-color: #C1CF65;
   }
   
   .filter-button {

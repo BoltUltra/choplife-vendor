@@ -3,7 +3,7 @@
 </app-header>
 
 <section class="payment-holder">
-    <div class="payment-container flex flex-col p-3">
+    <div class="payment-container shadow flex flex-col p-3">
         <h2 class="text-xl font-medium mb-3">Balance</h2>
         <div class="text-2xl font-medium mt-2.5 mb-3.5">₦<span>304,400.00</span></div>
         <div class="item-icon">
@@ -13,7 +13,7 @@
             <img src="assets/images/green-line.svg" alt="">
           </div>
     </div>
-    <div class="payment-container flex flex-col p-3">
+    <div class="payment-container shadow flex flex-col p-3">
         <h2 class="text-xl font-medium mb-3">Revenue</h2>
         <div class="text-2xl font-medium mt-2.5 mb-3.5">₦<span>304,400.00</span></div>
         <div class="item-icon">
@@ -23,7 +23,7 @@
             <img src="assets/images/green-line.svg" alt="">
           </div>
     </div>
-    <div class="payment-container flex flex-col p-3">
+    <div class="payment-container shadow flex flex-col p-3">
         <h2 class="text-xl font-medium mb-3">Net Earning</h2>
         <div class="text-2xl font-medium mt-2.5 mb-3.5">₦<span>304,400.00</span></div>
         <div class="item-icon">
@@ -34,17 +34,53 @@
           </div>
     </div>    
 </section>
-<!-- <section class="chart-section">
-    <div style="width: 80%; margin: 0 auto;">
-        <canvas id="barChart" width="400" height="300"></canvas>
-      </div>      
-</section> -->
-<section class="chart-section md:ml-5 md:mr-10 mx-3 mt-6">
-    <div class="block-1 grid grid-cols-3 gap-3"></div>
-    <div class="block-2"></div>
+<section class="chart-section">
+    <div class="block-1 shadow p-3 mb-5 rounded-3">
+      <div class="flex justify-between mb-3"><p class=" text-xl font-medium">Revenue Trend</p>
+        <select class="select rounded-md">
+          <option>Filter By: Date</option>
+          <option>Last 7 days</option>
+          <option>Last 30 days</option>
+          <option>Last 90 days</option>
+        </select>
+      </div>
+      <div style="width: 100%; margin: 0 auto;">
+        <canvas id="barChart" width="400" height="150"></canvas>
+      </div>
+      
+    </div>
+    <div class="block-2 shadow p-3 mb-5 rounded-3">
+      <div class="chart-container">
+        <canvas id="circleChart" height="200" width="200"></canvas>
+        <div class="chart-text">
+          <div class="chart-value text-3xl my-2 font-medium">5.3M</div>
+          <div class="chart-label text-xl whitespace-nowrap text-sm">Total Revenue</div>
+        </div>
+      </div>
+      <div class="chart-description">
+        <div class="text-xl font-medium whitespace-nowrap mb-16">Payment Analysis</div>
+        <div class="chart-legend mt-6">
+          <div class="legend-item">
+            <div class="legend-color" style="background-color: #5C7E64;"></div>
+            <div class="legend-text text-sm">Card</div>
+            <div class="legend-amount text-sm font-medium">$3,2000.00</div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color" style="background-color: #C1CF65;"></div>
+            <div class="legend-text text-sm">Transfer</div>
+            <div class="legend-amount text-sm font-medium">$2,5000.00</div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color" style="background-color: #F2FFCD;"></div>
+            <div class="legend-text text-sm">Cash</div>
+            <div class="legend-amount text-sm font-medium">$1,8000.00</div>
+          </div>
+        </div>
+      </div>
+    </div>
 </section>
 <section class="table-holder">
-  <div class="mt-10 bg-white rounded-xl">
+  <div class="bg-white rounded-xl">
     <app-payment-table></app-payment-table>
   </div>
 </section>

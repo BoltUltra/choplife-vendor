@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Chart } from 'chart.js';
+// import { Chart } from 'chart.js';
+import Chart from 'chart.js/auto';
 
 @Component({
   selector: 'app-payment',
@@ -43,6 +44,25 @@ export class PaymentComponent implements OnInit {
       type: 'bar',
       data: data,
       options: options
+    });
+
+    const chartContext = document.getElementById('circleChart') as HTMLCanvasElement;
+    const myChart = new Chart(chartContext, {
+      type: 'doughnut',
+      data: {
+        labels: ['Card', 'Transfer', 'Cash'],
+        datasets: [
+          {
+            data: [3200000, 2500000, 1800000],
+            backgroundColor: ['#5C7E64', '#C1CF65', '#F2FFCD']
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        cutout: 80,
+      }
     });
   }
 }
