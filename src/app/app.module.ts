@@ -18,6 +18,7 @@ import { SettlementsTableComponent } from './settlements-table/settlements-table
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { PagesComponent } from './settings/pages/pages.component';
+import { FoodListTableComponent } from './food-list-table/food-list-table.component';
 
 import { DataTablesModule } from 'angular-datatables';
 import { PaymentTableComponent } from './payment/payment-table/payment-table.component';
@@ -40,7 +41,11 @@ import { PaymentTableComponent } from './payment/payment-table/payment-table.com
     SettlementsTableComponent,
     LoginComponent,
     PagesComponent,
+<<<<<<< HEAD
     PaymentTableComponent,
+=======
+    FoodListTableComponent,
+>>>>>>> dd3bb11b66fa7ec47f2895d0b352869617706bfe
   ],
   imports: [
     BrowserModule,

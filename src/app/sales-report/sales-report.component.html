@@ -85,8 +85,11 @@
           <span class="text-gray-400">from June</span>
         </div>
       </div>
-      <div class="col-span-2 bg-white rounded-xl grid grid-cols-2 p-3 gap-3">
-        <div></div>
+      <div class="col-span-2 bg-white rounded-xl grid grid-cols-2 p-3 gap-3 items-center">
+        <div>
+          <canvas id="doughnutchart" width="900" height="">
+          </canvas>
+        </div>
         <div>
           <h4 class="text-sm font-semibold">Payment Analysis</h4>
           <div class="mt-4 space-y-3 text-sm">
@@ -111,7 +114,7 @@
     <div class="grid grid-rows-3 gap-3">
       <div class="bg-white rounded-xl p-3 row-span-2">
         <h4 class="font-semibold mb-6">Revenue Trend</h4>
-        <div id="chart" class="">chart</div>
+        <canvas id="barchart"></canvas>
       </div>
       <div class="grid grid-cols-2 gap-3">
         <div class="bg-white p-3 rounded-xl space-y-3">
@@ -146,7 +149,8 @@
     </div>
   </div>
 
-  <div class="mt-4 bg-white rounded-xl p-3">
+  <div class="mt-4 bg-white rounded-xl p-6">
     <p>Sales Summary</p>
+    <canvas id="piechart"></canvas>
   </div>
 </div>

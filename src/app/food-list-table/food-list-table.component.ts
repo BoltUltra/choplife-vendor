@@ -1,50 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/lib/order.service';
+import { DataService } from 'src/lib/food-data.service';
 
 @Component({
-  selector: 'app-orders',
-  templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.css'],
+  selector: 'app-food-list-table',
+  templateUrl: './food-list-table.component.html',
+  styleUrls: ['./food-list-table.component.css'],
 })
-export class OrdersComponent implements OnInit {
-  activeform: string = 'verification';
-
-  selectform: string = '';
-
-  showform1 = false;
-
-  showform2 = false;
-
-  box = [
-    {
-      text: 'Pending Orders',
-      number: '450',
-      new: 'New Orders',
-      count: '150',
-      new2: 'Processing',
-      count2: '300',
-      updates: 'Updated:15mins ago',
-    },
-    {
-      text: 'Completed Orders',
-      number: '550',
-      new: 'Ready',
-      count: '150',
-      new2: 'Delivered',
-      count2: '400',
-      updates: 'Updated:30mins ago',
-    },
-    {
-      text: 'Total Orders',
-      number: '1000',
-      new: 'Successful',
-      count: '950',
-      new2: 'Failed',
-      count2: '50',
-      updates: 'Updated:15mins ago',
-    },
-
-  ];
+export class FoodListTableComponent implements OnInit {
   data: any[] = [];
   currentPage = 1;
   itemsPerPage = 10;
@@ -54,6 +16,9 @@ export class OrdersComponent implements OnInit {
   // Modal
   showModal = false; // Variable to control modal visibility
   modalData: any = {}; // Data to display in the modal
+
+  // add items modal
+  showAddItemModal = false;
 
   constructor(private dataService: DataService) {}
 
@@ -142,5 +107,16 @@ export class OrdersComponent implements OnInit {
   // Method to close the modal
   closeModal() {
     this.showModal = false;
+  }
+
+  // add items modal
+  // Method to open the "Add Item" modal
+  openAddItemModal() {
+    this.showAddItemModal = true;
+  }
+
+  // Method to close the "Add Item" modal
+  closeAddItemModal() {
+    this.showAddItemModal = false;
   }
 }
