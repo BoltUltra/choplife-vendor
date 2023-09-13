@@ -3,6 +3,23 @@
 }
 
 
+.bg-tertiary{
+    height: 35px !important;
+    width: 13rem !important;
+    /* --bs-bg-opacity: 1; */
+    border-color: #e0e9a8 !important;
+    /* background-color: rgba(var(--bs-tertiary-bg-rgb),var(--bs-bg-opacity))!important; */
+}
+
+
+.bg-gray{
+    background-color: rgba(232, 232, 232, 0.8) !important;
+}
+
+.btn-primary{
+    background: #C1CF65 !important;
+    border-color: #C1CF65 !important;
+}
 
 
 /* fonts */

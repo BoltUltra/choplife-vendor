@@ -40,3 +40,7 @@ body{
     background: #C1CF65 !important;
     border-color: #C1CF65 !important;
 }
+
+.bg-gray{
+    background-color: rgba(232, 232, 232, 0.8) !important;
+}
