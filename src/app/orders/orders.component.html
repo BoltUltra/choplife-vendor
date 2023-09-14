@@ -1,1 +1,231 @@
-<p>orders works!</p>
+<app-header> Order Menu </app-header>
+
+<section>
+  <div class="container">
+    <div class="d-flex flex-col">
+      <div
+        class="shadow mt-2 rounded-3"
+        style="background-color: rgba(242, 255, 205, 1)"
+      >
+        <div class="d-flex align-items-center">
+          <img
+            src="../../assets/images/YoPrint-Order-Management-System 1.png"
+            alt=""
+            class="imgup"
+          />
+
+          <p class="text-start ms-4">
+            ChopLife’s
+            <span class="fw-semibold">Order Management System.</span> A tool
+            built to help <br />vendors keep track of the orders and manage the
+            entire order <br />process efficiently.
+          </p>
+
+          <div
+            class="shadow-none mb-4 bg-tertiary border rounded-4 ms-auto mx-5 mt-4"
+            style="width: 15rem !important"
+          >
+            <div class="row">
+              <div
+                class="col-6 rounded-4"
+                [ngClass]="{ 'bg-primary': activeform === 'verification' }"
+              >
+                <p
+                  class="text-center mt-1 textsize py-1"
+                  (click)="activeform = 'verification'"
+                >
+                  Table
+                </p>
+              </div>
+
+              <div
+                class="col-6 rounded-4"
+                [ngClass]="{ active: activeform === 'vendor' }"
+              >
+                <p
+                  class="text-center mt-1 textsize text-muted py-1 text-nowrap"
+                  (click)="activeform = 'vendor'"
+                >
+                  Kitchen View
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-box mt-3">
+        <div class="row">
+          <div class="col-lg-4 col-sm-6" *ngFor="let items of box">
+            <div
+              class="shadow mb-5 p-3 bg-body-tertiary rounded-3"
+              style="
+                background-image: linear-gradient(
+                  white 86%,
+                  #e0e9a8 5%,
+                  #e0e9a8
+                );
+                height: 12rem;
+              "
+            >
+              <div class="card-body">
+                <div class="d-flex">
+                  <div class="d-flex flex-col">
+                    <h5 class="card-title">{{ items.text }}</h5>
+
+                    <h3 class="fw-semibold f10">{{ items.number }}</h3>
+                  </div>
+
+                  <div class="ms-auto">
+                    <div
+                      class="text-center paddedsize mb-5 rounded-5"
+                      style="background-color: #f2ffcd"
+                    >
+                      <i class="fa-light fa-bell fa-xl"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-center marginsize">
+                  <div class="d-flex flex-col">
+                    <p>{{ items.new }}</p>
+                    <p class="fw-semibold">{{ items.count }}</p>
+                  </div>
+                  <div class="line ms-5">
+                    <img
+                      src="../../assets/images/Vector 3146.svg"
+                      alt=""
+                      class="img-fluid"
+                    />
+                  </div>
+                  <div class="d-flex flex-col ms-4">
+                    <p>{{ items.new2 }}</p>
+                    <p class="fw-semibold">{{ items.count2 }}</p>
+                  </div>
+                </div>
+                <div class="updated">
+                  <p class="fw-light update">{{ items.updates }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+      <div class="shadow mb-5 bg-body-tertiary rounded-3">
+
+        <div class="p-3 flex items-center justify-between">
+          <h3 class="font-semibold"></h3>
+          <div class="flex items-center space-x-2 text-sm bg-gray p-3 rounded-5 ms-auto">
+            <i class="fa-duotone fa-magnifying-glass fa-xl"></i>
+            <input class="bg-transparent focus:outline-none" type="text" [(ngModel)]="searchQuery" (input)="filterData()"
+              placeholder="Search..." />
+          </div>
+
+          <div class="flex items-center text-sm p-2 rounded-4 mx-5"
+          style="width: 15rem;">
+
+          <select class="form-select bg-transparent" style="background-color: rgb(226, 229, 229)!important;">
+            <option>Filter By: Date</option>
+            <option>Last 7 days</option>
+            <option>Last 30 days</option>
+            <option>Last 90 days</option>
+          </select>
+        </div>
+
+          <button type="button" class="btn btn-primary">Export</button>
+
+        </div>
+        
+        <div class="flex flex-col">
+          <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+              <div class="overflow-hidden">
+                <table class="min-w-full text-center text-sm font-light">
+                  <thead class="border-b bg-gray-200 font-medium dark:border-neutral-500 dark:text-neutral-800">
+                    <tr>
+                      <th scope="col" class=" px-6 py-4 cursor-pointer" (click)="sort('id')">Order Reference</th>
+                      <th scope="col" class=" px-6 py-4 cursor-pointer" (click)="sort('Customer')">Customer</th>
+                      <th scope="col" class=" px-6 py-4 cursor-pointer" (click)="sort('amount')">Amount</th>
+                      <th scope="col" class=" px-6 py-4 cursor-pointer" (click)="sort('payment_type')">Payment Type</th>
+                      <th scope="col" class=" px-6 py-4 cursor-pointer" (click)="sort('status')">Status</th>
+                      <th scope="col" class=" px-6 py-4 cursor-pointer" (click)="sort('Date')">Date</th>
+                      <th scope="col" class=" px-6 py-4 cursor-pointer" (click)="sort('')"></th>
+                      <th scope="col" class=" px-6 py-4 cursor-pointer" (click)="sort('')"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="dark:border-neutral-500" *ngFor="let item of displayedData">
+                      <td class="px-6 py-4 font-medium cursor-pointer" (click)="openModal(item)">{{ item.id }}</td>
+                      <td class="whitespace-nowrap  px-6 py-4">{{ item.Customer }}</td>
+                      <td class="whitespace-nowrap  px-6 py-4">{{ item.amount }}</td>
+                      <td class="whitespace-nowrap  px-6 py-4">{{ item.payment_type }}</td>
+                      <td class="whitespace-nowrap  px-6 py-4">{{ item.status }}</td>
+                      <td class="whitespace-nowrap  px-6 py-4">{{ item.date }}</td>
+                      <td class="whitespace-nowrap  px-6 py-4"></td>
+                      <td class="whitespace-nowrap  px-6 py-4">...</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flex items-center justify-end">
+          <div class="pagination flex items-center space-x-3 bg-white p-2 rounded-md text-xs">
+            <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+            <span>{{ currentPage }} / {{ totalPages }}</span>
+            <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+          </div>
+        </div>
+        
+        
+        <!-- Modal -->
+        <div *ngIf="showModal" class="custom-modal">
+          <!-- <div class="custom-modal"> -->
+          <div class="flex md:w-2/6">
+            <div class="bg-white relative w-full rounded-xl">
+              <div class="rounded-t-xl py-9 bg-primary-light">
+                <h3 class="font-semibold px-3">Payment</h3>
+                <div class="text-center space-y-3 py-6">
+                  <p>Amount</p>
+                  <h3 class="font-bold text-3xl">{{ modalData.amount }}</h3>
+                </div>
+              </div>
+              <div class="px-5 py-3 space-y-3 text-sm">
+                <p class="flex items-center justify-between">
+                  <span>Transaction ID</span><span class="text-right">{{ modalData.id }}</span>
+                </p>
+                <p class="flex items-center justify-between">
+                  <span>Payment Type</span> <span class="text-right">{{ modalData.payment_type }}</span>
+                </p>
+                <p class="flex items-center justify-between">
+                  <span>Amount</span> <span class="text-right">{{ modalData.amount }} </span>
+                </p>
+                <p class="flex items-center justify-between">
+                  <span>Date</span> <span class="text-right">{{ modalData.date }}</span>
+                </p>
+                <p class="flex items-center justify-between">
+                  <span>Status</span> <span class="text-right">{{ modalData.status }}</span>
+                </p>
+                <p class="flex items-center justify-between">
+                  <span>Platform Commission</span> <span class="text-right">N150.00</span>
+                </p>
+                <p class="flex items-center justify-between">
+                  <span>Description</span> <span class="text-right">{{ modalData.description }}</span>
+                </p>
+              </div>
+              <!-- Close button for the modal -->
+              <button (click)="closeModal()" class="absolute top-5 right-5"><i class="fas fa-x fa-sm"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</section>
