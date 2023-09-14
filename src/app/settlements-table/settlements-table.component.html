@@ -52,7 +52,7 @@
 
 
 <!-- Modal -->
-<div *ngIf="showModal" class="custom-modal">
+<div *ngIf="showModal" class="custom-modal" (click)="closeModal()">
   <!-- <div class="custom-modal"> -->
   <div class="flex md:w-2/6">
     <div class="bg-white relative w-full rounded-xl">
@@ -88,6 +88,10 @@
       </div>
       <!-- Close button for the modal -->
       <button (click)="closeModal()" class="absolute top-5 right-5"><i class="fas fa-x fa-sm"></i></button>
+      <div class="flex items-center px-5 py-3 text-sm justify-between">
+        <button class="bg-primary text-white px-10 py-2 rounded-md">Share</button>
+        <button class="bg-primary text-white px-10 py-2 rounded-md">Download</button>
+      </div>
     </div>
   </div>
 </div>
