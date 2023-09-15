@@ -9,7 +9,7 @@
 }
   .payment-container {
     max-width: 350px;
-    height: auto;
+    height: 250px;
     border-radius: 12px;
     position: relative;
     background-color: #fff;
@@ -35,6 +35,14 @@
     align-items: center;
     margin-top: 10px;
     font-size: 20px;
+  }
+
+  .line-chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
   }
 
   .chart-section {

@@ -16,6 +16,9 @@ export class PaymentTableComponent implements OnInit {
   // Modal
   showModal = false; // Variable to control modal visibility
   modalData: any = {}; // Data to display in the modal
+  showPaymentModal = false;
+  showConfirmationModal = false;
+  showSuccessModal = false;
 
   constructor(private dataService: DataService) {}
 
@@ -104,6 +107,29 @@ export class PaymentTableComponent implements OnInit {
   // Method to close the modal
   closeModal() {
     this.showModal = false;
+  }
+
+  confirmModal() {
+    this.showConfirmationModal = true;
+    this.showPaymentModal = false;
+  }
+
+  closeConfirmationModal() {
+    this.showConfirmationModal = false;
+  }
+
+  paymentModal() {
+    this.showPaymentModal = true;
+    this.showModal = false;
+    this.showConfirmationModal = false;
+  }
+
+  closePaymentModal(){
+    this.showPaymentModal = false;
+  }
+
+  openSuccessModal() {
+    this.showSuccessModal = true;
   }
 
 }

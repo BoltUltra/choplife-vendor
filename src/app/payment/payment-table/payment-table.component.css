@@ -1,5 +1,8 @@
 /* Add this code within settlements-table.component.css or your CSS file */
-.custom-modal {
+.custom-modal,
+.cancel-payment-modal,
+.confirm-modal,
+.success-modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -10,6 +13,11 @@
     justify-content: center;
     align-items: center;
     z-index: 9999;
+  }
+
+  .modal-body {
+    background-color: #fff;
+    border-radius: 6px;
   }
   
   .btn {
@@ -53,4 +61,23 @@
 .btn {
   padding: 5px 10px;
   border-radius: 6px;
+}
+
+textarea {
+  resize: none;
+  outline: none;
+  border: 1px solid #ccc;
+}
+
+.sub-btn {
+  background-color: #C1CF65 !important;
+  color: #2d2d2d;
+  width: 100%;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  margin: 10px auto;
+}
+
+.primarydark {
+  background-color: #ccc;
 }
