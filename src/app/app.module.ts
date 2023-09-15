@@ -41,11 +41,8 @@ import { PaymentTableComponent } from './payment/payment-table/payment-table.com
     SettlementsTableComponent,
     LoginComponent,
     PagesComponent,
-<<<<<<< HEAD
     PaymentTableComponent,
-=======
     FoodListTableComponent,
->>>>>>> dd3bb11b66fa7ec47f2895d0b352869617706bfe
   ],
   imports: [
     BrowserModule,

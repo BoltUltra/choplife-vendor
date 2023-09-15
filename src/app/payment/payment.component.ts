@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 // import { Chart } from 'chart.js';
 import Chart from 'chart.js/auto';
 
@@ -7,7 +7,7 @@ import Chart from 'chart.js/auto';
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.css']
 })
-export class PaymentComponent implements OnInit {
+export class PaymentComponent implements OnInit, AfterViewInit {
 
   constructor() {}
 
@@ -65,7 +65,51 @@ export class PaymentComponent implements OnInit {
       }
     });
   }
+
+  ngAfterViewInit(): void {
+    this.renderChart('balanceChart', [5, 4, 1, 5, 1, 2]);
+    this.renderChart('revenueChart', [3, 2, 4, 6, 5, 7]);
+    this.renderChart('netEarningChart', [2, 3, 2, 4, 3, 5]);
+  }
+
+  renderChart(chartId: string, dataPoints: number[]) {
+    const ctx = document.getElementById(chartId) as HTMLCanvasElement;
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Label 1', 'Label 2', 'Label 3', 'Label 4', 'Label 5', 'Label 6'],
+        datasets: [
+          {
+            label: '',
+            data: dataPoints,
+            fill: {
+              target: 'origin',
+              above: '#C1E9CC',
+              below: '#D6F0DD',
+            },
+            borderColor: '#32B657',
+            pointBorderWidth: 0,
+            showLine: true,
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+            display: false,
+          },
+          x: {
+            display: false,
+          }
+        },
+      },
+    });
+  }
+
 }
+
 
 
 
