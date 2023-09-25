@@ -22,10 +22,11 @@
           <thead class="border-b bg-gray-200 font-medium dark:border-neutral-500 dark:text-neutral-800">
             <tr>
               <th scope="col" class=" px-6 py-4 cursor-pointer" (click)="sort('photo')">Photo</th>
-              <th scope="col" class=" px-6 py-4 cursor-pointer" (click)="sort('id')">Item ID</th>
+              <th scope="col" class="px-6 py-4 cursor-pointer whitespace-nowrap" (click)="sort('id')">Item ID</th>
               <th scope="col" class=" px-6 py-4 cursor-pointer" (click)="sort('name')">Name</th>
               <th scope="col" class=" px-6 py-4 cursor-pointer" (click)="sort('price')">Price</th>
-              <th scope="col" class=" px-6 py-4 cursor-pointer" (click)="sort('delivery_time')">Delivery Time</th>
+              <th scope="col" class=" px-6 py-4 cursor-pointer whitespace-nowrap" (click)="sort('delivery_time')">
+                Delivery Time</th>
               <th scope="col" class=" px-6 py-4 cursor-pointer" (click)="sort('rating')">Rating</th>
               <th scope="col" class=" px-6 py-4 cursor-pointer" (click)="sort('menu')">Menu</th>
               <th scope="col" class=" px-6 py-4 cursor-pointer" (click)="sort('discount')">Discount</th>
@@ -44,7 +45,8 @@
               <td class="whitespace-nowrap  px-6 py-4">{{ item.menu }}</td>
               <td class="whitespace-nowrap  px-6 py-4">{{ item.discount }}</td>
               <td class="whitespace-nowrap  px-6 py-4">{{ item.date }}</td>
-              <td class="whitespace-nowrap  px-6 py-4">...</td>
+              <td class="whitespace-nowrap  px-6 py-4 text-primary cursor-pointer" (click)="openEditItemModal()"><i
+                  class="fa-duotone fa-pen-to-square"></i></td>
             </tr>
           </tbody>
         </table>
@@ -63,7 +65,7 @@
 
 
 <!-- Details Modal -->
-<div *ngIf="showModal" class="custom-modal">
+<div *ngIf="showModal" class="custom-modal" (click)="closeModal()">
   <!-- <div class="custom-modal"> -->
   <div class="flex md:w-2/6">
     <div class="bg-white relative w-full rounded-xl p-6">
@@ -111,13 +113,63 @@
 </div>
 
 <!-- Add Item Modal -->
-<div *ngIf="showAddItemModal" class="custom-modal">
+<div *ngIf="showAddItemModal" class="custom-modal" (click)="closeAddItemModal()">
   <!-- <div class="custom-modal"> -->
   <div class="flex md:w-2/6">
     <div class="bg-white relative w-full rounded-xl px-3 py-9 main-modal">
       <button (click)="closeAddItemModal()" class="absolute top-5 right-5"><i class="fas fa-x fa-sm"></i></button>
       <div class="">
         <h3 class="font-semibold text-xl">Add Food Item</h3>
+        <p class="font-light text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt.</p>
+      </div>
+      <div class="mt-6">
+        <form class="space-y-4">
+          <div class="flex flex-col space-y-2">
+            <label for="name" class="font-semibold text-lg">Food Name</label>
+            <input type="text" name="name" id="name" placeholder="Enter name"
+              class="p-2 outline-none placeholder:text-xs bg-gray-100 rounded-md">
+          </div>
+          <div class="flex flex-col space-y-2">
+            <label for="price" class="font-semibold text-lg">Price</label>
+            <input type="text" name="price" id="price" placeholder="N"
+              class="p-2 outline-none placeholder:text-xs bg-gray-100 rounded-md">
+          </div>
+          <div class="flex flex-col space-y-2">
+            <label for="delivery_time" class="font-semibold text-lg">Delivery Time</label>
+            <input type="text" name="delivery_time" id="delivery_time" placeholder="HH/MM/SS"
+              class="p-2 outline-none placeholder:text-xs bg-gray-100 rounded-md">
+          </div>
+          <div class="flex flex-col space-y-2">
+            <label for="description" class="font-semibold text-lg">Description</label>
+            <textarea name="description" id="description" rows="2"
+              class="p-2 outline-none placeholder:text-xs bg-gray-100 rounded-md"
+              placeholder="Write a short note"></textarea>
+          </div>
+          <div class="flex flex-col space-y-2">
+            <label for="file" class="font-semibold text-lg">Upload Image</label>
+            <input type="file" name="Image" id="image" class="border p-3 rounded-md">
+          </div>
+          <div class="flex flex-col space-y-2">
+            <label for="discount" class="font-semibold text-lg">Discount</label>
+            <input type="text" name="discount" id="discount" placeholder="%"
+              class="p-2 outline-none placeholder:text-xs bg-gray-100 rounded-md">
+          </div>
+          <button class="w-full bg-primary hover:bg-primary-light rounded-xl py-2">Add Food Item</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Item Modal -->
+<div *ngIf="showEditItemModal" class="custom-modal" (click)="closeEditItemModal()">
+  <!-- <div class="custom-modal"> -->
+  <div class="flex md:w-2/6">
+    <div class="bg-white relative w-full rounded-xl px-3 py-9 main-modal">
+      <button (click)="closeEditItemModal()" class="absolute top-5 right-5"><i class="fas fa-x fa-sm"></i></button>
+      <div class="">
+        <h3 class="font-semibold text-xl">Edit Food Item</h3>
         <p class="font-light text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt.</p>
       </div>

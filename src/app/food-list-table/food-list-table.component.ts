@@ -20,6 +20,9 @@ export class FoodListTableComponent implements OnInit {
   // add items modal
   showAddItemModal = false;
 
+  // add items modal
+  showEditItemModal = false;
+
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
@@ -118,5 +121,16 @@ export class FoodListTableComponent implements OnInit {
   // Method to close the "Add Item" modal
   closeAddItemModal() {
     this.showAddItemModal = false;
+  }
+
+  // edit item modal
+  // Method to open the "Add Item" modal
+  openEditItemModal() {
+    this.showEditItemModal = true;
+  }
+
+  // Method to close the "Add Item" modal
+  closeEditItemModal() {
+    this.showEditItemModal = false;
   }
 }
