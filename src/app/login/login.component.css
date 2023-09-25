@@ -14,6 +14,10 @@ section {
     height: 100vh;
 }
 
+.logo {
+    margin-right: 30%;
+}
+
 .left {
     flex: 1;
     padding: 20px;
@@ -27,16 +31,6 @@ section {
 .right {
     flex: 1;
     padding: 20px;
-}
-
-.logo {
-    display: flex;
-    flex-direction: column;
-}
-
-.logo img {
-    display: block;
-    margin: 0 auto;
 }
 
 h2 {
@@ -104,15 +98,7 @@ input[type="email"] {
 }
 
 .logo-text {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #C1CF65;
-    padding: 7px 27px;
-    width: 80px;
-    height: 20px;
-    border-radius: 12px;
-    margin-left: 310px;
-    margin-bottom: 10px;
-}
+    background-color: #C1CF65 !important;
+  }
+  
 

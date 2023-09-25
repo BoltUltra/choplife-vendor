@@ -1,0 +1,83 @@
+/* Add this code within settlements-table.component.css or your CSS file */
+.custom-modal,
+.cancel-payment-modal,
+.confirm-modal,
+.success-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+
+  .modal-body {
+    background-color: #fff;
+    border-radius: 6px;
+  }
+  
+  .btn {
+    background-color: #F2FFCD;
+  }
+
+  .btnn {
+    background-color: #C1CF65;
+  }
+  
+  .filter-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #2d2d2d;
+  }
+
+  .filter-button i {
+    margin-left: 25px;
+  }
+  
+  .export-button {
+    background-color: #C1CF65 !important;
+    color: #2d2d2d;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 60px;
+  }
+
+  .btn-primary{
+    background: #C1CF65 !important;
+    border-color: #C1CF65 !important;
+    color: #2d2d2d;
+    
+}
+
+.btn {
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+textarea {
+  resize: none;
+  outline: none;
+  border: 1px solid #ccc;
+}
+
+.sub-btn {
+  background-color: #C1CF65 !important;
+  color: #2d2d2d;
+  width: 100%;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  margin: 10px auto;
+}
+
+.primarydark {
+  background-color: #ccc;
+}
