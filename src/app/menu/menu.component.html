@@ -2,4 +2,308 @@
   <p>Menu Module</p>
 </app-header>
 
-<p>menu works!</p>
+<section class="shadow p-3 mt-5 bg-white rounded-3 ms-3" *ngIf="selectform !== 'verification'" style="width: 97%; height: 100%;">
+
+  <div class="container">
+    <!-- <div class="createmenu" >
+
+    </div> -->
+    <div class="bottomless"></div>
+    <div class="d-flex flex-col align-items-center justify-content-center">
+      <img src="../../assets/images/image 28.png" alt="image28">
+
+      <div class="text-center">
+        <h3 class="fw-semibold f10">Welcome to Menu</h3>
+        <p class="text-muted">Lorem ipsum dolor sit amet consectetur. In non varius <br> venenatis. Ultrices ut.</p>
+        <div
+        class="mt-5 border rounded-3 d-flex justify-content-center"
+        style="background: #c1cf65"
+      >
+        <button
+          class="btn py-1 fw-medium"
+          style="color: black !important"
+          type="submit"
+          data-bs-toggle="modal" data-bs-target="#MenuModal"
+        >
+          Add a Menu
+        </button>
+      </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+  
+  
+</section>
+
+<div class="menu-items" *ngIf="selectform === 'verification'">
+  
+  <div class="mx-3 mt-2 bg-white rounded-xl p-3">
+    <div class="bg-primary-light flex justify-between items-center p-6 rounded-xl">
+      <div class="space-y-3 md:w-3/4">
+        <h3 class="font-bold text-2xl">Menu Module</h3>
+        <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+          labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+      </div>
+      <div>
+        <button class="bg-primary rounded-xl py-1 px-6"  type="submit" data-bs-toggle="modal" data-bs-target="#MenuModal" >Create Menu</button>
+      </div>
+    </div>
+
+    <div class="mt-5 d-flex items-center justify-between">
+      <h3 class="fw-medium">Menu Table</h3>
+
+    <div class="p-3 flex items-center justify-between">
+      <h3 class="font-semibold"></h3>
+          <div class="flex items-center space-x-2 text-sm bg-gray p-3 rounded-5 ms-auto">
+            <i class="fa-duotone fa-magnifying-glass fa-xl"></i>
+            <input class="bg-transparent focus:outline-none" type="text" [(ngModel)]="searchQuery" (input)="filterData()"
+            placeholder="Search..." />
+          </div>
+
+          <div class="flex items-center text-sm p-2 rounded-4 mx-5"
+            style="width: 15rem;">
+
+            <select class="form-select bg-transparent" style="background-color: rgb(226, 229, 229)!important;">
+              <option>Filter By: Date</option>
+              <option>Last 7 days</option>
+              <option>Last 30 days</option>
+              <option>Last 90 days</option>
+            </select>
+          </div>
+
+          <button type="button" class="btn btn-primary">Export</button>
+
+        </div>
+    </div>
+    
+    <div class="flex flex-col">
+      <div class="overflow-x-auto">
+        <div class="inline-block min-w-full py-2">
+          <div class="overflow-hidden">
+            <table class="min-w-full text-center text-sm font-light">
+              <thead class="border-b bg-gray-200 font-medium dark:border-neutral-500 dark:text-neutral-800">
+                <tr>
+                  <th scope="col" class=" px-6 py-4 cursor-pointer" (click)="sort('photo')"></th>
+                  <th scope="col" class=" px-6 py-4 cursor-pointer" (click)="sort('id')">Menu ID</th>
+                  <th scope="col" class=" px-6 py-4 cursor-pointer" (click)="sort('price')"></th>
+                  <th scope="col" class=" px-6 py-4 cursor-pointer" (click)="sort('name')">Name</th>
+                  <th scope="col" class=" px-6 py-4 cursor-pointer" (click)="sort('delivery_time')"></th>
+                  <th scope="col" class=" px-6 py-4 cursor-pointer" (click)="sort('numbers')">Item</th>
+                  <th scope="col" class=" px-6 py-4 cursor-pointer" (click)="sort('menu')"></th>
+                  <th scope="col" class=" px-6 py-4 cursor-pointer" (click)="sort('date')">Date</th>
+                  <th scope="col" class=" px-6 py-4 cursor-pointer" (click)="sort('discount')"></th>
+                  <th scope="col" class=" px-6 py-4 cursor-pointer"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="dark:border-neutral-500" *ngFor="let item of displayedData">
+                  <td class="pl-6 py-4"><img [src]="item.photo" alt="" class=""></td>
+                  <td class="py-4 font-medium cursor-pointer" (click)="openModal(item)">{{ item.id }}</td>
+                  <td class="whitespace-nowrap  px-6 py-4">{{ item.price }}</td>
+                  <td class="whitespace-nowrap  px-6 py-4">{{ item.name }}</td>
+                  <td class="whitespace-nowrap  px-6 py-4">{{ item.delivery_time }}</td>
+                  <td class="whitespace-nowrap  px-6 py-4">{{ item.numbers }}</td>
+                  <td class="whitespace-nowrap  px-6 py-4">{{ item.menu }}</td>
+                  <td class="whitespace-nowrap  px-6 py-4">{{ item.date }}</td>
+                  <td class="whitespace-nowrap  px-6 py-4">{{ item.discount }}</td>
+                  <td class="whitespace-nowrap  px-6 py-4">...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flex items-center justify-end">
+      <div class="pagination flex items-center space-x-3 bg-white p-2 rounded-md text-xs">
+        <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+        <span>{{ currentPage }} / {{ totalPages }}</span>
+        <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+      </div>
+    </div>
+    
+    
+    <!-- Details Modal -->
+    <div *ngIf="showModal" class="custom-modal">
+      <!-- <div class="custom-modal"> -->
+      <div class="flex md:w-2/6">
+        <div class="bg-white relative w-full rounded-xl p-6">
+          <div class="py-4">
+            <h3 class="font-semibold">Preview</h3>
+            <p class="text-sm text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt.</p>
+          </div>
+          <div class="relative">
+            <img [src]="modalData.photo" alt="{{ modalData.text }}" class="h-36 w-full object-cover rounded-xl">
+            <div
+            class="absolute bottom-5 left-5 bg-primary-light flex items-center space-x-2 py-1 px-3 rounded-full text-sm">
+              <i class="fas fa-star"></i>
+              <span>{{modalData.rating}}</span>
+            </div>
+          </div>
+          <div class="space-y-3 text-sm mt-6">
+            <p class="flex items-center justify-between">
+              <span>Item ID</span><span class="text-right">{{ modalData.id }}</span>
+            </p>
+            <p class="flex items-center justify-between">
+              <span>Name</span> <span class="text-right">{{ modalData.name }}</span>
+            </p>
+            <p class="flex items-center justify-between">
+              <span>Price</span> <span class="text-right">{{ modalData.price }} </span>
+            </p>
+            <p class="flex items-center justify-between">
+              <span>Menu</span> <span class="text-right">{{ modalData.menu }}</span>
+            </p>
+            <p class="flex items-center justify-between">
+              <span>Category</span> <span class="text-right">{{ modalData.category }} Breakfast</span>
+            </p>
+            <p class="flex items-center justify-between">
+              <span>Discount</span> <span class="text-right bg-blue-500 rounded-full px-3 py-1 text-white"><i
+                class="fa-thin fa-tag"></i>{{
+                modalData.discount }}</span>
+            </p>
+            <p class="flex items-center justify-between">
+              <span>Date</span> <span class="text-right">{{ modalData.date }}</span>
+            </p>
+          </div>
+          <button (click)="closeModal()" class="absolute top-5 right-5"><i class="fas fa-x fa-sm"></i></button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Add Item Modal -->
+    <div *ngIf="showAddItemModal" class="custom-modal">
+      <!-- <div class="custom-modal"> -->
+      <div class="flex md:w-2/6">
+        <div class="bg-white relative w-full rounded-xl px-3 py-9 main-modal">
+          <button (click)="closeAddItemModal()" class="absolute top-5 right-5"><i class="fas fa-x fa-sm"></i></button>
+          <div class="">
+            <h3 class="font-semibold text-xl">Add Food Item</h3>
+            <p class="font-light text-gray-500 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt.</p>
+          </div>
+          <div class="mt-6">
+            <form class="space-y-4">
+              <div class="flex flex-col space-y-2">
+                <label for="name" class="font-semibold text-lg">Food Name</label>
+                <input type="text" name="name" id="name" placeholder="Enter name"
+                class="p-2 outline-none placeholder:text-xs bg-gray-100 rounded-md">
+              </div>
+              <div class="flex flex-col space-y-2">
+                <label for="price" class="font-semibold text-lg">Price</label>
+                <input type="text" name="price" id="price" placeholder="N"
+                  class="p-2 outline-none placeholder:text-xs bg-gray-100 rounded-md">
+              </div>
+              <div class="flex flex-col space-y-2">
+                <label for="delivery_time" class="font-semibold text-lg">Delivery Time</label>
+                <input type="text" name="delivery_time" id="delivery_time" placeholder="HH/MM/SS"
+                  class="p-2 outline-none placeholder:text-xs bg-gray-100 rounded-md">
+              </div>
+              <div class="flex flex-col space-y-2">
+                <label for="description" class="font-semibold text-lg">Description</label>
+                <textarea name="description" id="description" rows="2"
+                  class="p-2 outline-none placeholder:text-xs bg-gray-100 rounded-md"
+                  placeholder="Write a short note"></textarea>
+                </div>
+              <div class="flex flex-col space-y-2">
+                <label for="file" class="font-semibold text-lg">Upload Image</label>
+                <input type="file" name="Image" id="image" class="border p-3 rounded-md">
+              </div>
+              <div class="flex flex-col space-y-2">
+                <label for="discount" class="font-semibold text-lg">Discount</label>
+                <input type="text" name="discount" id="discount" placeholder="%"
+                class="p-2 outline-none placeholder:text-xs bg-gray-100 rounded-md">
+              </div>
+              <button class="w-full bg-primary hover:bg-primary-light rounded-xl py-2">Add Food Item</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="modal fade" id="MenuModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="MenuModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-3">
+          <div class="ms-auto mx-4 mt-2">
+            <!-- <h1 class="modal-title fs-5" id="MenuModalLabel">Modal title</h1> -->
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body mt-1">
+            <h4 class="text-start f10 fw-bold">Create Menu</h4>
+            <p class="fw-lighter text-muted mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+    
+            <label for="Name" class="text-start fw-semibold mt-4">Name of Menu</label>
+            <input type="text" class="form-control bg-transparent" id="Name" placeholder="Enter name" style="background-color: rgb(226, 229, 229)!important;">
+    
+            <div
+            class="mt-5 border rounded-3 d-flex justify-content-center"
+            style="background: #c1cf65"
+          >
+            <button
+              class="btn py-1 fw-medium"
+              style="color: black !important"
+              type="submit"
+              data-bs-toggle="modal" data-bs-target="#MenuModal2"
+            >
+              Add a Menu
+            </button>
+          </div>
+    
+          </div>
+    
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="modal fade" id="MenuModal2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="MenuModal2Label" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-3">
+    
+          <div class="modal-body mt-1">
+              <div class="d-flex flex-col align-items-center justify-content-center">
+        <img src="../../assets/images/image 30.png" alt="image30" class="img-fluid">
+    
+        <div class="text-center">
+          <h3 class="fw-semibold f10">Operation Successful</h3>
+          <p class="text-muted">Lorem ipsum dolor sit amet consectetur. In non varius <br> venenatis. Ultrices ut.</p>
+    
+          <div class="d-flex align-items-center justify-content-between">
+    
+            <div
+            class="mt-5 border rounded-3 d-flex justify-content-center border" style="width: 15rem; border-color: #c1cf65 !important;">
+            <button
+              class="btn py-1 fw-medium"
+              style="color: black !important"
+              type="submit"
+              data-bs-toggle="modal" data-bs-target="#MenuModal"
+            >
+              Add a Menu
+            </button>
+          </div>
+          <div class="mt-5 border rounded-3 d-flex justify-content-center" style="background: #c1cf65; width: 8rem;">
+    
+            <button
+              class="btn py-1 fw-medium"
+              style="color: black !important"
+              type="submit"
+              (click)="selectform = 'verification'"
+              data-bs-dismiss="modal"
+            >
+              Skip
+            </button>
+          </div>
+          </div>
+        </div>
+      </div>
+    
+          </div>
+    
+        </div>
+      </div>
+    </div>
