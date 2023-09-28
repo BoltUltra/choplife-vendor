@@ -1,13 +1,16 @@
-body{
+/* body{
     height: 100vh;
     overflow-y: hidden;
-}
+} */
 
-.header{
+/* .header{
     overflow: hidden !important;
     height: 100vh;
-}
+} */
 
+.body {
+    background-color: #f8f9f9;
+  }
 
 .paddedsize{
     padding-left: 0.9rem;

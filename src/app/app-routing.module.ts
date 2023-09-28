@@ -11,11 +11,21 @@ import { OverviewComponent } from './overview/overview.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent, title: 'Vendor | Login' },
+  { path: '', component: LoginComponent, title: 'Login' },
+
+
+  // {
+  //   path: 'sidebar',
+  //   loadChildren: () => 
+  //   import('./sidebar/sidebar.module').then(
+  //     (m) => m.SidebarModule
+  //   ),
+  // },
+
   {
-    path: '',
+    path: 'overview',
     component: OverviewComponent,
-    title: 'Vendor Dashboard | Overview',
+    title: 'Vendor Dashboard | Overview', 
   },
   {
     path: 'orders',

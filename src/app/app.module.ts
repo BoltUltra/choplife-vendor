@@ -27,11 +27,11 @@ import { DataTablesModule } from 'angular-datatables';
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponent,
     OrdersComponent,
     MenuComponent,
     FoodComponent,
     PaymentComponent,
+    SidebarComponent,
     SalesReportComponent,
     SettlementsComponent,
     SettingsComponent,
