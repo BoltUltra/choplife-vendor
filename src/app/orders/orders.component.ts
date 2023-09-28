@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { DataService } from 'src/lib/order.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-orders',
@@ -7,7 +8,14 @@ import { DataService } from 'src/lib/order.service';
   styleUrls: ['./orders.component.css'],
 })
 export class OrdersComponent implements OnInit {
-  activeform: string = 'verification';
+
+
+
+  @ViewChild('successModal2')
+  myModal!: ElementRef;
+
+
+  activeform: string = '';
 
   selectform: string = '';
 
@@ -55,7 +63,7 @@ export class OrdersComponent implements OnInit {
   showModal = false; // Variable to control modal visibility
   modalData: any = {}; // Data to display in the modal
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService, private location: Location) {}
 
   ngOnInit(): void {
     this.dataService.getData().subscribe((result) => {
@@ -143,4 +151,20 @@ export class OrdersComponent implements OnInit {
   closeModal() {
     this.showModal = false;
   }
+
+
+
+  backed(){
+    this.location.back()
+  }
+
+
+
+
+
+  // onsubmit(){
+  //   setTimeout(() => {
+  //     $(this.successModal2.nativeElement).modal('hide');
+  //   }, 5000);
+  // }
 }

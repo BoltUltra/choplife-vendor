@@ -28,11 +28,11 @@ import { PaymentTableComponent } from './payment/payment-table/payment-table.com
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponent,
     OrdersComponent,
     MenuComponent,
     FoodComponent,
     PaymentComponent,
+    SidebarComponent,
     SalesReportComponent,
     SettlementsComponent,
     SettingsComponent,
