@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/lib/food-data.service';
+import { DataService } from 'src/lib/data.service';
 
 @Component({
-  selector: 'app-food-list-table',
-  templateUrl: './food-list-table.component.html',
-  styleUrls: ['./food-list-table.component.css'],
+  selector: 'app-payment-table',
+  templateUrl: './payment-table.component.html',
+  styleUrls: ['./payment-table.component.css']
 })
-export class FoodListTableComponent implements OnInit {
+export class PaymentTableComponent implements OnInit {
   data: any[] = [];
   currentPage = 1;
   itemsPerPage = 10;
@@ -16,12 +16,9 @@ export class FoodListTableComponent implements OnInit {
   // Modal
   showModal = false; // Variable to control modal visibility
   modalData: any = {}; // Data to display in the modal
-
-  // add items modal
-  showAddItemModal = false;
-
-  // add items modal
-  showEditItemModal = false;
+  showPaymentModal = false;
+  showConfirmationModal = false;
+  showSuccessModal = false;
 
   constructor(private dataService: DataService) {}
 
@@ -112,25 +109,27 @@ export class FoodListTableComponent implements OnInit {
     this.showModal = false;
   }
 
-  // add items modal
-  // Method to open the "Add Item" modal
-  openAddItemModal() {
-    this.showAddItemModal = true;
+  confirmModal() {
+    this.showConfirmationModal = true;
+    this.showPaymentModal = false;
   }
 
-  // Method to close the "Add Item" modal
-  closeAddItemModal() {
-    this.showAddItemModal = false;
+  closeConfirmationModal() {
+    this.showConfirmationModal = false;
   }
 
-  // edit item modal
-  // Method to open the "Add Item" modal
-  openEditItemModal() {
-    this.showEditItemModal = true;
+  paymentModal() {
+    this.showPaymentModal = true;
+    this.showModal = false;
+    this.showConfirmationModal = false;
   }
 
-  // Method to close the "Add Item" modal
-  closeEditItemModal() {
-    this.showEditItemModal = false;
+  closePaymentModal(){
+    this.showPaymentModal = false;
   }
+
+  openSuccessModal() {
+    this.showSuccessModal = true;
+  }
+
 }
