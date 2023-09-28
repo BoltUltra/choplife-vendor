@@ -63,4 +63,6 @@ export class SidebarComponent implements OnInit {
     // Call the toggleSidebar method to close the sidebar when clicking on the "close" icon
     this.sidebarService.toggleSidebar();
   }
+
+
 }
