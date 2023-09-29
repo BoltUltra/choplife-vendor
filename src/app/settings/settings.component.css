@@ -16,3 +16,10 @@ nav {
     flex: 1; /* Allow the selected page to take up remaining space */
     padding: 20px; /* Add spacing around the selected page content */
 }
+
+@media screen and (max-width: 768px) {
+    section {
+        flex-direction: column;
+    }
+        
+}

@@ -5,7 +5,7 @@
     width: 100%;
     background-color: #F2FFCD;
     position: relative;
-    padding: 80px 5% 70px;
+    padding: 90px 5% 80px;
   }
   
   .buttons {
@@ -33,10 +33,10 @@
     margin-right: 25px;
   }
   /* Frame */
-  .circle-frame {
+  /* .circle-frame {
     position: absolute;
     top: 30px;
-    left: 50px; /* Adjust the value to position the circle outside to the left */
+    left: 50px;
     max-width: 200px;
     max-height: 200px;
     border-radius: 50%;
@@ -46,11 +46,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
+  } */
   
   .circle-frame img {
-    max-width: 100%;
-    max-height: auto;
+    position: absolute;
+    top: 15px;
+    left: 50px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     border-radius: 50%;
   }
@@ -66,10 +69,8 @@
     align-items: center;
     justify-content: center;
     position: absolute;
-    /* top: 180px;
-    left: 240px; */
-    top: 150px;
-    left: 120px;
+    top: 120px;
+    left: 150px;
     cursor: pointer;
   }
 
@@ -137,7 +138,7 @@
     background-color: #5C7E79;
   } */
   
-  @media screen and (max-width: 568px) {
+  @media screen and (max-width: 820px) {
      .form-row {
         flex-direction: column;
      }
@@ -150,25 +151,46 @@
         margin-top: 10px;
      }
 
-     .edit-button {
-        position: static;
-        top: auto;
-        left: auto;
-     }
-
      .buttons {
         margin-top: 45px;
      }
+
+     .circle-frame img {
+      height: 100px;
+      width: 100px;
+      top: 60px;
+      left: 10px;
+     }
+
+     .edit-button {
+      top: 120px;
+      left: 80px;
+      width: 35px;
+      height: 35px
+     }
   }
 
-  @media screen and (max-width: 1068px) {
-    .circle-frame {
-        position: static;
-        max-width: 100px;
-        max-height: 100px;
-        top: auto;
-        left: auto;
-        bottom: auto;
+  @media screen and (max-width: 400px) {
+    .buttons {
+      display: flex;
+      position: absolute; /* Position the buttons relative to the rectangle */
+      bottom: 0; /* Align the buttons to the bottom */
+      left: 25%; /* Align the buttons to the right */
     }
+    .circle-frame img {
+      height: 100px;
+      width: 100px;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+     }
+     .edit-button {
+      top: 70px;
+      left: 190px;
+      width: 35px;
+      height: 35px
+     }
   }
+
+
   
