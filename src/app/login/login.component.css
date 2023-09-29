@@ -1,43 +1,56 @@
-section {
-    font-family: Arial, sans-serif;
-    margin: 0;
+* {
     padding: 0;
-    background-color: #fff;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.section {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    width: 100%;
 }
 
 .contained {
-    /* max-width: 1200px; */
-    margin: 0 auto;
+    min-width: 100vw;
     display: flex;
-    /* justify-content: center;
-    align-items: center; */
-    height: 100%;
+    height: 100vh;
 }
 
 .logo {
-    margin-right: 30%;
+    margin-right: 10%;
 }
 
 .left {
     flex: 1;
-    
+    width: 100%;
 }
 
 .left img {
-    max-width: 100%;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .right {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center the content */
+    align-items: center;
     padding: 20px;
+    height: auto; 
 }
+
+.content {
+    width: 400px;
+    text-align: left;
+  }
 
 h2 {
     text-align:left;
-    font-size: 36px;
+    font-size: 30px;
     font-weight: 700;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 p {
@@ -80,7 +93,8 @@ input[type="email"] {
     text-align: right;
     display: block;
     margin-top: -10px;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
+    color: #5C7E64;
 }
 
 .login-button {
@@ -101,4 +115,21 @@ input[type="email"] {
     background-color: #C1CF65 !important;
   }
   
+@media (max-width: 580px) {
+    .left {
+        display: none;
+    }
 
+    .right{
+        flex: 1;
+        padding: 30px;
+        margin: 0 auto; /* Center the right content */
+        max-width: 300px;
+    }
+
+    .content {
+        max-width: 300px;
+        height: auto;
+        text-align: left;
+      }
+}
