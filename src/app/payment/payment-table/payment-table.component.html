@@ -65,7 +65,7 @@
   
   
   <!-- Modal -->
-  <div *ngIf="showModal" class="custom-modal">
+  <div [hidden]="!showModal" class="custom-modal">
     <!-- <div class="custom-modal"> -->
     <div class="flex md:w-2/6">
       <div class="bg-white relative w-full rounded-xl">
@@ -93,11 +93,9 @@
             <span>Status</span> <span class="text-right">{{ modalData.status }}</span>
           </p>
           <div class="flex items-center justify-between mt-72">
-            <button (click)="showConfirmationModal = true"
-            class="btn rounded-md p-1.5"
-            >Confirm Payment</button>
+            <button (click)="confirmModal()" class="btn rounded-md p-1.5" >Confirm Payment</button>
              <button class="btn btnn text-right rounded-md p-1.5"
-             (click)="showPaymentModal = true"
+             
              >cancel</button>
           </div>
         </div>
@@ -107,7 +105,7 @@
     </div>
   </div>
   <!-- Cancel Payment Order -->
-  <div *ngIf="showPaymentModal" class="cancel-payment-modal">
+  <div [hidden]="!showPaymentModal" class="cancel-payment-modal">
     <div class="flex md:w-2/6">
       <div class="bg-white relative w-full rounded-xl">
         <div class="primarydark rounded-t-xl py-9">
@@ -156,7 +154,7 @@
     </div>
   </div>
 <!-- Are you sure modal -->
-  <div *ngIf="showConfirmationModal" class="confirm-modal">
+  <div [hidden]="!showConfirmationModal" class="confirm-modal">
 
       <div class="p-3">
   
