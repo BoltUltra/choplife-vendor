@@ -1,3 +1,15 @@
+<div class="row" >
+  <aside class="col-3">
+    <app-sidebar></app-sidebar>
+  </aside>
+  
+
+  <div class="md:w-3/4 md:py-10 md:pr-10 md:h-screen overflow-y-scroll body" style="background-color: #f8f9f9;">
+
+
+
+
+
 <app-header>
   <p>Menu Module</p>
 </app-header>
@@ -5,9 +17,6 @@
 <section class="shadow p-3 mt-5 bg-white rounded-3 ms-3" *ngIf="selectform !== 'verification'" style="width: 97%; height: 100%;">
 
   <div class="container">
-    <!-- <div class="createmenu" >
-
-    </div> -->
     <div class="bottomless"></div>
     <div class="d-flex flex-col align-items-center justify-content-center">
       <img src="../../assets/images/image 28.png" alt="image28">
@@ -17,13 +26,14 @@
         <p class="text-muted">Lorem ipsum dolor sit amet consectetur. In non varius <br> venenatis. Ultrices ut.</p>
         <div
         class="mt-5 border rounded-3 d-flex justify-content-center"
-        style="background: #c1cf65"
+        style="background: #c1cf65; cursor: pointer;"
+        data-bs-toggle="modal" data-bs-target="#MenuModal"
       >
         <button
           class="btn py-1 fw-medium"
           style="color: black !important"
           type="submit"
-          data-bs-toggle="modal" data-bs-target="#MenuModal"
+         
         >
           Add a Menu
         </button>
@@ -242,13 +252,14 @@
     
             <div
             class="mt-5 border rounded-3 d-flex justify-content-center"
-            style="background: #c1cf65"
+            style="background: #c1cf65; cursor: pointer;"
+            data-bs-toggle="modal" data-bs-target="#MenuModal2"
           >
             <button
               class="btn py-1 fw-medium"
               style="color: black !important"
               type="submit"
-              data-bs-toggle="modal" data-bs-target="#MenuModal2"
+             
             >
               Add a Menu
             </button>
@@ -276,24 +287,25 @@
           <div class="d-flex align-items-center justify-content-between">
     
             <div
-            class="mt-5 border rounded-3 d-flex justify-content-center border" style="width: 15rem; border-color: #c1cf65 !important;">
+            class="mt-5 border rounded-3 d-flex justify-content-center border" style="width: 15rem; border-color: #c1cf65 !important; cursor: pointer;"
+            data-bs-toggle="modal" data-bs-target="#foodModal">
             <button
               class="btn py-1 fw-medium"
               style="color: black !important"
               type="submit"
-              data-bs-toggle="modal" data-bs-target="#MenuModal"
+              
             >
               Add a Menu
             </button>
           </div>
-          <div class="mt-5 border rounded-3 d-flex justify-content-center" style="background: #c1cf65; width: 8rem;">
+          <div class="mt-5 border rounded-3 d-flex justify-content-center" style="background: #c1cf65; width: 8rem; cursor: pointer;" data-bs-dismiss="modal">
     
             <button
               class="btn py-1 fw-medium"
               style="color: black !important"
               type="submit"
               (click)="selectform = 'verification'"
-              data-bs-dismiss="modal"
+             
             >
               Skip
             </button>
@@ -307,3 +319,107 @@
         </div>
       </div>
     </div>
+
+
+
+
+    <div class="modal fade" id="foodModal" tabindex="-1" aria-labelledby="foodModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content p-3">
+          <div class="d-flex justify-content-between mt-5 container">
+            <h1 class="modal-title fw-bold fs-5" id="exampleModalLabel">Add Food Item</h1>
+            <button type="button" class="btn-close " data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <!-- <h6>
+            Please add the food items that you want to sell today!
+          </h6> -->
+          <div class="modal-body d-flex justify-content-between flex-column">
+
+            <div class="d-flex justify-content-between mb-2">
+              <p class="text-muted f9">Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+            </div>
+
+
+            <form>
+              <div class="mt-3">
+                <label for="exampleInputEmail1" class="form-label fw-semibold">Food Name</label>
+                <input type="text" class="form-control bg-body-tertiary" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter name">
+                <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+              </div>
+
+              <div class="mt-3">
+                <label for="Price1" class="form-label fw-semibold">Price</label>
+                <input type="password" class="form-control bg-body-tertiary" id="Price1" placeholder="N">
+              </div>
+
+              <div class="mt-3">
+                <label for="Category1" class="form-label fw-semibold">Category</label>
+                <select class="form-select bg-body-tertiary" aria-label="Default select example">
+                  <option selected> --Please select--</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+
+              <div class="row mt-3">
+
+                <div class="col-md-6">
+                  <label for="validationCustom01" class="form-label fw-semibold">Delivery time</label>
+                  <input type="text" class="form-control bg-body-tertiary" id="validationCustom01" placeholder="HH/MM/SS">
+                </div>
+                <div class="col-md-6">
+                  <label for="validationCustom02" class="form-label fw-semibold">Discount</label>
+                  <input type="text" class="form-control bg-body-tertiary" id="validationCustom02" placeholder="%">
+                </div>
+              </div>
+
+
+              <div class="mt-3">
+                <label for="Price1" class="form-label fw-semibold">Description</label>
+                <input type="password" class="form-control bg-body-tertiary" id="Price1" placeholder="Write a short note">
+              </div>
+
+              <div class="mt-3">
+                <label for="Price1" class="form-label fw-semibold">Upload Image</label>
+                <input class="form-control" type="file" id="formFile">
+              </div>
+
+
+              <div class="d-flex justify-content-center align-items-center mt-4">
+                <button type="button" class="btn text-center" data-bs-toggle="modal" data-bs-target="#successModal2" style="padding-left: 5rem !important; padding-right: 5rem !important; background-color:#c1cf65 !important;">Add Food Item</button>
+              </div>
+            </form>            
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="modal fade" id="successModal2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="successModalLabel2" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-3">
+    
+          <div class="modal-body mt-1" data-bs-dismiss="modal" routerLink="/food">
+              <div class="d-flex flex-col align-items-center justify-content-center">
+        <img src="../../assets/images/image 30.png" alt="image30" class="img-fluid">
+    
+        <div class="text-center">
+          <h3 class="fw-semibold f10">Operation Successful</h3>
+          <p class="text-muted">Lorem ipsum dolor sit amet consectetur. In non varius <br> venenatis. Ultrices ut.</p>
+
+        </div>
+      </div>
+    
+          </div>
+    
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>

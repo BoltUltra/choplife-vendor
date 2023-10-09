@@ -44,6 +44,10 @@
     /* height: 3rem; */
 }
 
+.paddedbtn{
+    padding-left: 3.5rem !important;
+    padding-right: 3.5rem !important;
+}
 
 .marginsize{
     margin-top: -1.2rem;

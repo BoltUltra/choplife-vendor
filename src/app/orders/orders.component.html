@@ -1,6 +1,17 @@
+<div class="row" >
+  <aside class="col-3">
+    <app-sidebar></app-sidebar>
+  </aside>
+  
+
+  <div class="md:w-3/4 md:py-10 md:pr-10 md:h-screen overflow-y-scroll body" style="background-color: #f8f9f9;">
+
+
+
+
 <app-header> Order Menu </app-header>
 
-<section>
+<section *ngIf="activeform !== 'verification'">
   <div class="container">
     <div class="d-flex flex-col">
       <div
@@ -27,12 +38,12 @@
           >
             <div class="row">
               <div
-                class="col-6 rounded-4"
+                class="col-6 rounded-4 btn-primary"
                 [ngClass]="{ 'bg-primary': activeform === 'verification' }"
               >
                 <p
                   class="text-center mt-1 textsize py-1"
-                  (click)="activeform = 'verification'"
+                  (click)="activeform = 'vendor'"
                 >
                   Table
                 </p>
@@ -40,11 +51,11 @@
 
               <div
                 class="col-6 rounded-4"
-                [ngClass]="{ active: activeform === 'vendor' }"
+                
               >
                 <p
                   class="text-center mt-1 textsize text-muted py-1 text-nowrap"
-                  (click)="activeform = 'vendor'"
+                  (click)="activeform = 'verification'"
                 >
                   Kitchen View
                 </p>
@@ -155,9 +166,10 @@
                       <th scope="col" class=" px-6 py-4 cursor-pointer" (click)="sort('')"></th>
                     </tr>
                   </thead>
+
                   <tbody>
                     <tr class="dark:border-neutral-500" *ngFor="let item of displayedData">
-                      <td class="px-6 py-4 font-medium cursor-pointer" (click)="openModal(item)">{{ item.id }}</td>
+                      <td class="px-6 py-4 font-medium cursor-pointer" data-bs-toggle="modal" data-bs-target="#exampleModal">{{ item.id }}</td>
                       <td class="whitespace-nowrap  px-6 py-4">{{ item.Customer }}</td>
                       <td class="whitespace-nowrap  px-6 py-4">{{ item.amount }}</td>
                       <td class="whitespace-nowrap  px-6 py-4">{{ item.payment_type }}</td>
@@ -183,45 +195,218 @@
         
         
         <!-- Modal -->
-        <div *ngIf="showModal" class="custom-modal">
-          <!-- <div class="custom-modal"> -->
-          <div class="flex md:w-2/6">
-            <div class="bg-white relative w-full rounded-xl">
-              <div class="rounded-t-xl py-9 bg-primary-light">
-                <h3 class="font-semibold px-3">Payment</h3>
-                <div class="text-center space-y-3 py-6">
-                  <p>Amount</p>
-                  <h3 class="font-bold text-3xl">{{ modalData.amount }}</h3>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content p-3">
+              <div class="d-flex justify-content-between mt-2 container">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Customer Order</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body d-flex justify-content-between flex-column">
+
+                <div class="d-flex justify-content-between mb-2">
+                  <p>Order From:</p>
+                  <p>Customer Name</p>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                  <p>Phone</p>
+                  <p>234 909 9048 059</p>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                  <p>Email</p>
+                  <p>user@email.com</p>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                  <p>Estimated Delivery Time:</p>
+                  <p>24-42 Minutes</p>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                  <p>Payment Type</p>
+                  <p>Transfer</p>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                  <p>Order Status</p>
+                  <p>Processing</p>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                  <p>Comment(s)</p>
+                  <p>Customer Name</p>
+                </div>
+
+
+                <div class="border-bottom"></div>
+
+                <div class="d-flex mt-3 justify-content-between mb-2">
+                  <div class="">
+                    <p class="fw-lighter text-muted">Item</p>
+
+                    <p class="mt-2">Pizza Suya</p>
+                    <p class="mt-2">Big Asun</p>
+                    <p class="mt-2">Kaduna Pizza</p>
+                  </div>
+                  <div class="">
+                    <p class="fw-lighter text-muted">Quantity</p>
+
+                    <p class="mt-2">3</p>
+                    <p class="mt-2">4</p>
+                    <p class="mt-2">6</p>
+                  </div>
+                  <div class="">
+                    <p class="fw-lighter text-muted">Price</p>
+
+                    <p class="mt-2">3,400</p>
+                    <p class="mt-2">3,400</p>
+                    <p class="mt-2">6,800</p>
+                  </div>
+                </div>
+
+                <div class="border-bottom"></div> 
+
+                <div class="d-flex justify-content-between mt-2">
+                  <p>Subtotal:</p>
+                  <p>13,600</p>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                  <p>Discount:</p>
+                  <p>N/A</p>
+                </div>
+                <div class="d-flex justify-content-between mb-2">
+                  <p>VAT:</p>
+                  <p>400</p>
+                </div>
+
+
+                <div class="border-bottom"></div> 
+
+                <div class="d-flex justify-content-between mt-2">
+                  <p>Total</p>
+                  <p>14,000</p>
+                </div>
+                
+                
+                <div class="d-flex justify-content-between mt-3">
+                  <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#proceedModal" style="padding-left: 3.5rem !important; padding-right: 3.5rem !important; background-color: #eaf0c6 !important;" data-bs-dismiss="modal">Confirm Payment</button>
+                  <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#cancelModal" style="padding-left: 3rem !important; padding-right: 3rem !important; background-color: #bcce4c !important;">Cancel</button>
                 </div>
               </div>
-              <div class="px-5 py-3 space-y-3 text-sm">
-                <p class="flex items-center justify-between">
-                  <span>Transaction ID</span><span class="text-right">{{ modalData.id }}</span>
-                </p>
-                <p class="flex items-center justify-between">
-                  <span>Payment Type</span> <span class="text-right">{{ modalData.payment_type }}</span>
-                </p>
-                <p class="flex items-center justify-between">
-                  <span>Amount</span> <span class="text-right">{{ modalData.amount }} </span>
-                </p>
-                <p class="flex items-center justify-between">
-                  <span>Date</span> <span class="text-right">{{ modalData.date }}</span>
-                </p>
-                <p class="flex items-center justify-between">
-                  <span>Status</span> <span class="text-right">{{ modalData.status }}</span>
-                </p>
-                <p class="flex items-center justify-between">
-                  <span>Platform Commission</span> <span class="text-right">N150.00</span>
-                </p>
-                <p class="flex items-center justify-between">
-                  <span>Description</span> <span class="text-right">{{ modalData.description }}</span>
-                </p>
-              </div>
-              <!-- Close button for the modal -->
-              <button (click)="closeModal()" class="absolute top-5 right-5"><i class="fas fa-x fa-sm"></i></button>
             </div>
           </div>
         </div>
+
+
+        <!-- Cancelled Modal -->
+        <div class="modal fade" id="cancelModal" tabindex="-1" aria-labelledby="cancelModalLabel" aria-hidden="true">
+          <div class="modal-dialog" >
+            <div class="modal-content p-3" style=" background-image: linear-gradient(grey 45%,white 5%, white 50%) !important;">
+              <div class="d-flex flex-column justify-content-between mt-2 container ">
+                <div class="d-flex justify-content-between mt-3">
+                  <h1 class="modal-title fs-5 fw-bold" id="cancelModalLabel">Cancel Payment Order</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <h5 class="text-center mt-5">Amount</h5>
+                <h3 class="text-center mt-3 fw-semibold f10">N304,000.00</h3>
+              </div>
+              <div class="modal-body d-flex justify-content-between flex-column">
+
+                <div class="border-bottom mt-5"></div>
+
+                <div class="d-flex mt-5 justify-content-between mb-2">
+                  <div class="mt-5">
+                    <p class="">Transaction ID</p>
+
+                    <p class="mt-2">Payment Type</p>
+                    <p class="mt-2">Amount</p>
+                    <p class="mt-2">Date</p>
+                    <p class="mt-2">Status</p>
+                  </div>
+                  <div class="mt-5">
+                    <p class="text-end">#ERTY567890</p>
+
+                    <p class="mt-2 text-end">Card</p>
+                    <p class="mt-2 text-end">N45,050.00</p>
+                    <p class="mt-2 text-end">23 Aug, 2023</p>
+                    <p class="mt-2 text-end">Completed</p>
+                  </div>
+                </div>
+
+                <div class="mt-2">
+                  <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Cancellation Note</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div>
+                </div>              
+                
+                <div class="mt-3">
+                  <button type="button" class="btn text-center" data-bs-toggle="modal" data-bs-target="#proceedModal" style="padding-left: 12rem !important; padding-right: 12rem !important; background-color: #bcce4c !important;">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- proceed modal -->
+        <div class="modal fade" id="proceedModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="proceedModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-3">
+        
+              <div class="modal-body mt-1">
+                  <div class="d-flex flex-col align-items-center justify-content-center">
+            <img src="../../assets/images/image 30.png" alt="image30" class="img-fluid">
+        
+            <div class="text-center">
+              <h3 class="fw-semibold f10">This action cannot be undone, do <br> you want to proceed?</h3>
+        
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="mt-5">
+
+                  <button type="button" class="btn py-1 fw-medium" data-bs-toggle="modal" data-bs-target="#successModal2" style="padding-left: 3.5rem !important; padding-right: 3.5rem !important; background-color: #eaf0c6 !important;" data-bs-dismiss="modal">Yes, Continue</button>
+                </div>
+              <div class="mt-5 border rounded-3 d-flex justify-content-center" style="background: #c1cf65; width: 8rem;">
+        
+                <button
+                  class="btn py-1 fw-medium"
+                  style="color: black !important"
+                  type="submit"
+                  data-bs-dismiss="modal"
+                >
+                  No, Go back
+                </button>
+              </div>
+              </div>
+            </div>
+          </div>
+        
+              </div>
+        
+            </div>
+          </div>
+        </div>
+
+
+        <!-- success modal -->
+        <div class="modal fade" id="successModal2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="successModalLabel2" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-3">
+        
+              <div class="modal-body mt-1" data-bs-dismiss="modal">
+                  <div class="d-flex flex-col align-items-center justify-content-center">
+            <img src="../../assets/images/image 30.png" alt="image30" class="img-fluid">
+        
+            <div class="text-center">
+              <h3 class="fw-semibold f10">Operation Successful</h3>
+              <p class="text-muted">Lorem ipsum dolor sit amet consectetur. In non varius <br> venenatis. Ultrices ut.</p>
+
+            </div>
+          </div>
+        
+              </div>
+        
+            </div>
+          </div>
+        </div>
+        
       </div>
 
 
@@ -229,3 +414,346 @@
     </div>
   </div>
 </section>
+
+
+<section *ngIf="activeform === 'verification'">
+
+  <div class="d-flex" (click)="activeform = 'vendor'">
+    <p class="ms-3"><</p>
+    <a  class="mx-2">Back</a>
+  </div>
+
+
+
+  <div class="mt-2 row shadow p-3 bg-white rounded-3 container ms-3" style="width: 97%;">
+
+    <div class="col-4 p-3">
+      <div class="d-flex flex-column">
+        <div class="d-flex justify-content-between border rounded-3 bg-gray-200 p-3 mb-2">
+          <p>
+            #AD45/R5-CL
+          </p>
+          <i class="fa-solid fa-chevron-down fa-sm mt-2"></i>
+
+        </div>
+        <div class="d-flex justify-content-between border rounded-3 bg-gray-200 p-3 mb-2">
+          <p>
+            #AD45/R5-CL
+          </p>
+          <i class="fa-solid fa-chevron-down fa-sm mt-2"></i>
+
+        </div>
+        <div class="d-flex justify-content-between border rounded-3 bg-gray-200 p-3 mb-2">
+          <p>
+            #AD45/R5-CL
+          </p>
+          <i class="fa-solid fa-chevron-down fa-sm mt-2"></i>
+
+        </div>
+        <div class="d-flex justify-content-between border rounded-3 bg-gray-200 p-3 mb-2">
+          <p>
+            #AD45/R5-CL
+          </p>
+          <i class="fa-solid fa-chevron-down fa-sm mt-2"></i>
+
+        </div>
+
+        <div class="d-flex flex-column justify-content-between border rounded-3 bg-gray-200 p-3 mb-2">
+
+          <div class="d-flex justify-content-between">
+            <div class="border d-flex rounded-3 px-2 bg-dark" style="color: yellow;">
+              <i class="mt-1 fa-solid fa-clock me-2 fw-lighter"></i>
+              <p class="fw-lighter">~ 20 min</p>
+              
+            </div>
+            <i class="fa-solid fa-chevron-up fa-sm mt-2"></i>
+
+          </div>          
+          <div class="d-flex justify-content-between mb-3">
+            <p>Order Ref:</p>
+            <p>#AD45/R5-CL</p>
+          </div>
+
+          <div class="d-flex justify-content-between mb-3">
+            <p>Customer</p>
+            <p>Sharafadeen Mubarak-CL</p>
+          </div>
+          <div class="d-flex mb-3 justify-content-between">
+            <p>Phone</p>
+            <p>234 909 9048 059</p>
+          </div>
+          <div class="d-flex mb-3 justify-content-between">
+            <p>Time</p>
+            <p>6:56pm</p>
+          </div>
+          <div class="d-flex mb-3 justify-content-between">
+            <p>Comment(s)</p>
+            <div class="d-flex">
+              <p class="me-3">3</p>
+              <p>></p>
+            </div>
+        
+          </div>
+
+          <div class="mb-3">
+            <p class="fw-lighter text-muted">Item</p>
+          </div>
+
+          <div class="border-bottom mb-2">
+
+          </div>
+
+          <div class="d-flex mb-3 justify-content-between">
+            <p>Pizza Suya</p>
+
+            <p>x3</p>
+          </div>
+
+          <p class="mb-3" style="color: #C1CF65;">Add a lot of  salt or <br>something random.</p>
+
+          <div class="border-bottom mb-2"></div>
+
+          <div class="d-flex mb-2 justify-content-between">
+            <p>Pizza Suya</p>
+
+            <p>x5</p>
+          </div>
+
+          <div class="d-flex mb-3 justify-content-between">
+
+            <button type="button" class="btn btn-danger">Cancel</button>
+            
+            <button type="button" class="btn btn-primary paddedbtn rounded-4">Start</button>
+          </div>
+
+
+
+        </div>
+
+      </div>
+      
+    </div>
+    <div class="col-4 p-3">
+      <div class="d-flex flex-column">
+        <div class="d-flex justify-content-between border rounded-3 bg-gray-200 p-3 mb-2">
+          <p>
+            #AD45/R5-CL
+          </p>
+          <i class="fa-solid fa-chevron-down fa-sm mt-2"></i>
+
+        </div>
+
+        <div class="d-flex justify-content-between border rounded-3 bg-gray-200 p-3 mb-2">
+          <p>
+            #AD45/R5-CL
+          </p>
+          <i class="fa-solid fa-chevron-down fa-sm mt-2"></i>
+
+        </div>
+
+        <div class="d-flex flex-column justify-content-between border rounded-3 bg-gray-200 p-3 mb-2">
+
+          <div class="d-flex justify-content-between">
+            <div class="border d-flex rounded-3 px-2 bg-dark" style="color: yellow;">
+              <i class="mt-1 fa-solid fa-clock me-2 fw-lighter"></i>
+              <p class="fw-lighter">~ 20 min</p>
+              
+            </div>
+            <i class="fa-solid fa-chevron-up fa-sm mt-2"></i>
+
+          </div>          
+          <div class="d-flex justify-content-between mb-3">
+            <p>Order Ref:</p>
+            <p>#AD45/R5-CL</p>
+          </div>
+
+          <div class="d-flex justify-content-between mb-3">
+            <p>Customer</p>
+            <p>Sharafadeen Mubarak-CL</p>
+          </div>
+          <div class="d-flex mb-3 justify-content-between">
+            <p>Phone</p>
+            <p>234 909 9048 059</p>
+          </div>
+          <div class="d-flex mb-3 justify-content-between">
+            <p>Time</p>
+            <p>6:56pm</p>
+          </div>
+          <div class="d-flex mb-3 justify-content-between">
+            <p>Comment(s)</p>
+            <div class="d-flex">
+              <p class="me-3">3</p>
+              <p>></p>
+            </div>
+        
+          </div>
+
+          <div class="mb-3">
+            <p class="fw-lighter text-muted">Item</p>
+          </div>
+
+          <div class="border-bottom mb-2">
+
+          </div>
+
+          <div class="d-flex mb-3 justify-content-between">
+            <p>Pizza Suya</p>
+
+            <p>x3</p>
+          </div>
+
+          <p class="mb-3" style="color: #C1CF65;">Add a lot of  salt or <br>something random.</p>
+
+          <div class="border-bottom mb-2"></div>
+
+          <div class="d-flex mb-2 justify-content-between">
+            <p>Pizza Suya</p>
+
+            <p>x5</p>
+          </div>
+
+          <div class="d-flex mb-3 justify-content-between">
+
+            <button type="button" class="btn btn-danger">Cancel</button>
+            
+            <button type="button" class="btn paddedbtn rounded-4 text-white" style="background-color: #0b7238;">Ready</button>
+          </div>
+
+
+
+        </div>
+
+        <div class="d-flex justify-content-between border rounded-3 bg-gray-200 p-3 mb-2">
+          <p>
+            #AD45/R5-CL
+          </p>
+          <i class="fa-solid fa-chevron-down fa-sm mt-2"></i>
+
+        </div>
+        <div class="d-flex justify-content-between border rounded-3 bg-gray-200 p-3 mb-2">
+          <p>
+            #AD45/R5-CL
+          </p>
+          <i class="fa-solid fa-chevron-down fa-sm mt-2"></i>
+
+        </div>
+
+      </div>
+
+    </div>
+    
+    
+    <div class="col-4 p-3">
+      <div class="d-flex flex-column">
+        <div class="d-flex justify-content-between border rounded-3 bg-gray-200 p-3 mb-2">
+          <p>
+            #AD45/R5-CL
+          </p>
+          <i class="fa-solid fa-chevron-down fa-sm mt-2"></i>
+
+        </div>
+        <div class="d-flex flex-column justify-content-between border rounded-3 bg-gray-200 p-3 mb-2">
+
+          <div class="d-flex justify-content-between">
+            <div class="border d-flex rounded-3 px-2 bg-dark" style="color: yellow;">
+              <i class="mt-1 fa-solid fa-clock me-2 fw-lighter"></i>
+              <p class="fw-lighter">~ 20 min</p>
+              
+            </div>
+            <i class="fa-solid fa-chevron-up fa-sm mt-2"></i>
+
+          </div>          
+          <div class="d-flex justify-content-between mb-3">
+            <p>Order Ref:</p>
+            <p>#AD45/R5-CL</p>
+          </div>
+
+          <div class="d-flex justify-content-between mb-3">
+            <p>Customer</p>
+            <p>Sharafadeen Mubarak-CL</p>
+          </div>
+          <div class="d-flex mb-3 justify-content-between">
+            <p>Phone</p>
+            <p>234 909 9048 059</p>
+          </div>
+          <div class="d-flex mb-3 justify-content-between">
+            <p>Time</p>
+            <p>6:56pm</p>
+          </div>
+          <div class="d-flex mb-3 justify-content-between">
+            <p>Comment(s)</p>
+            <div class="d-flex">
+              <p class="me-3">3</p>
+              <p>></p>
+            </div>
+        
+          </div>
+
+          <div class="mb-3">
+            <p class="fw-lighter text-muted">Item</p>
+          </div>
+
+          <div class="border-bottom mb-2">
+
+          </div>
+
+          <div class="d-flex mb-3 justify-content-between">
+            <p>Pizza Suya</p>
+
+            <p>x3</p>
+          </div>
+
+          <p class="mb-3" style="color: #C1CF65;">Add a lot of  salt or <br>something random.</p>
+
+          <div class="border-bottom mb-2"></div>
+
+          <div class="d-flex mb-2 justify-content-between">
+            <p>Pizza Suya</p>
+
+            <p>x5</p>
+          </div>
+
+          <div class="d-flex mb-3 justify-content-between">
+
+            <button type="button" class="btn btn-danger">Cancel</button>
+            
+            <button type="button" class="btn btn-dark text-white rounded-4 paddedbtn">Completed</button>
+          </div>
+
+
+
+        </div>
+
+        <div class="d-flex justify-content-between border rounded-3 bg-gray-200 p-3 mb-2">
+          <p>
+            #AD45/R5-CL
+          </p>
+          <i class="fa-solid fa-chevron-down fa-sm mt-2"></i>
+
+        </div>
+
+        
+        <div class="d-flex justify-content-between border rounded-3 bg-gray-200 p-3 mb-2">
+          <p>
+            #AD45/R5-CL
+          </p>
+          <i class="fa-solid fa-chevron-down fa-sm mt-2"></i>
+
+        </div>
+        <div class="d-flex justify-content-between border rounded-3 bg-gray-200 p-3 mb-2">
+          <p>
+            #AD45/R5-CL
+          </p>
+          <i class="fa-solid fa-chevron-down fa-sm mt-2"></i>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+</section>
+  </div>
+</div>

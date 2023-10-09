@@ -1,58 +1,12 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { DataService } from 'src/lib/order.service';
-import { Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/lib/data.service';
 
 @Component({
-  selector: 'app-orders',
-  templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.css'],
+  selector: 'app-payment-table',
+  templateUrl: './payment-table.component.html',
+  styleUrls: ['./payment-table.component.css']
 })
-export class OrdersComponent implements OnInit {
-
-
-
-  @ViewChild('successModal2')
-  myModal!: ElementRef;
-
-
-  activeform: string = '';
-
-  selectform: string = '';
-
-  showform1 = false;
-
-  showform2 = false;
-
-  box = [
-    {
-      text: 'Pending Orders',
-      number: '450',
-      new: 'New Orders',
-      count: '150',
-      new2: 'Processing',
-      count2: '300',
-      updates: 'Updated:15mins ago',
-    },
-    {
-      text: 'Completed Orders',
-      number: '550',
-      new: 'Ready',
-      count: '150',
-      new2: 'Delivered',
-      count2: '400',
-      updates: 'Updated:30mins ago',
-    },
-    {
-      text: 'Total Orders',
-      number: '1000',
-      new: 'Successful',
-      count: '950',
-      new2: 'Failed',
-      count2: '50',
-      updates: 'Updated:15mins ago',
-    },
-
-  ];
+export class PaymentTableComponent implements OnInit {
   data: any[] = [];
   currentPage = 1;
   itemsPerPage = 10;
@@ -62,8 +16,11 @@ export class OrdersComponent implements OnInit {
   // Modal
   showModal = false; // Variable to control modal visibility
   modalData: any = {}; // Data to display in the modal
+  showPaymentModal = false;
+  showConfirmationModal = false;
+  showSuccessModal = false;
 
-  constructor(private dataService: DataService, private location: Location) {}
+  constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
     this.dataService.getData().subscribe((result) => {
@@ -152,19 +109,27 @@ export class OrdersComponent implements OnInit {
     this.showModal = false;
   }
 
-
-
-  backed(){
-    this.location.back()
+  confirmModal() {
+    this.showConfirmationModal = true;
+    this.showPaymentModal = false;
   }
 
+  closeConfirmationModal() {
+    this.showConfirmationModal = false;
+  }
 
+  paymentModal() {
+    this.showPaymentModal = true;
+    this.showModal = false;
+    this.showConfirmationModal = false;
+  }
 
+  closePaymentModal(){
+    this.showPaymentModal = false;
+  }
 
+  openSuccessModal() {
+    this.showSuccessModal = true;
+  }
 
-  // onsubmit(){
-  //   setTimeout(() => {
-  //     $(this.successModal2.nativeElement).modal('hide');
-  //   }, 5000);
-  // }
 }

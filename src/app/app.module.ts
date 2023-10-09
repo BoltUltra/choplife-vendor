@@ -21,17 +21,18 @@ import { PagesComponent } from './settings/pages/pages.component';
 import { FoodListTableComponent } from './food-list-table/food-list-table.component';
 
 import { DataTablesModule } from 'angular-datatables';
+import { PaymentTableComponent } from './payment/payment-table/payment-table.component';
 // import { ChartsModule } from 'ng2-charts';
 // import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponent,
     OrdersComponent,
     MenuComponent,
     FoodComponent,
     PaymentComponent,
+    SidebarComponent,
     SalesReportComponent,
     SettlementsComponent,
     SettingsComponent,
@@ -40,6 +41,7 @@ import { DataTablesModule } from 'angular-datatables';
     SettlementsTableComponent,
     LoginComponent,
     PagesComponent,
+    PaymentTableComponent,
     FoodListTableComponent,
   ],
   imports: [
