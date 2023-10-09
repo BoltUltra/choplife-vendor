@@ -41,7 +41,7 @@
             </thead>
             <tbody>
               <tr class="dark:border-neutral-500" *ngFor="let item of displayedData">
-                <td class="px-6 py-4 font-medium cursor-pointer" (click)="openModal(item)">{{ item.id }}</td>
+                <td class="px-6 py-4 font-medium cursor-pointer" (click)="openModal(item)" data-bs-toggle="modal" data-bs-target="#staticBackdrop">{{ item.id }}</td>
                 <td class="whitespace-nowrap  px-6 py-4">{{ item.payment_type }}</td>
                 <td class="whitespace-nowrap  px-6 py-4">{{ item.amount }}</td>
                 <td class="whitespace-nowrap  px-6 py-4">{{ item.date }}</td>
@@ -65,146 +65,171 @@
   
   
   <!-- Modal -->
-  <div *ngIf="showModal" class="custom-modal">
-    <!-- <div class="custom-modal"> -->
-    <div class="flex md:w-2/6">
-      <div class="bg-white relative w-full rounded-xl">
-        <div class="rounded-t-xl py-9 bg-primary-light">
-          <h3 class="font-semibold px-3">Payment</h3>
-          <div class="text-center space-y-3 py-6">
-            <p>Amount</p>
-            <h3 class="font-bold text-3xl">{{ modalData.amount }}</h3>
+  <div *ngIf="showModal" class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+          <div class="flex">
+            <div class="bg-white relative w-full rounded-xl">
+              <div class="rounded-t-xl py-9 bg-primary-light">
+                <h3 class="font-semibold px-3">Payment</h3>
+                <div class="text-center space-y-3 py-6">
+                  <p>Amount</p>
+                  <h3 class="font-bold text-3xl">{{ modalData.amount }}</h3>
+                </div>
+              </div>
+              <div class="px-5 py-3 space-y-3 text-sm">
+                <p class="flex items-center justify-between">
+                  <span>Transaction ID</span><span class="text-right">{{ modalData.id }}</span>
+                </p>
+                <p class="flex items-center justify-between">
+                  <span>Payment Type</span> <span class="text-right">{{ modalData.payment_type }}</span>
+                </p>
+                <p class="flex items-center justify-between">
+                  <span>Amount</span> <span class="text-right">{{ modalData.amount }} </span>
+                </p>
+                <p class="flex items-center justify-between">
+                  <span>Date</span> <span class="text-right">{{ modalData.date }}</span>
+                </p>
+                <p class="flex items-center justify-between">
+                  <span>Status</span> <span class="text-right">{{ modalData.status }}</span>
+                </p>
+                <div class="flex items-center justify-between mt-72">
+                  <button 
+                  class="btn rounded-md p-1.5"
+                  data-bs-toggle="modal" data-bs-target="#confirmdrop"
+                  (click)="confirmModal()"
+                  >Confirm Payment</button>
+                  
+                   <button class="btn btnn text-right rounded-md p-1.5"
+                   data-bs-toggle="modal" data-bs-target="#canceldrop"
+
+                   (click)="showPaymentModal = true"
+                   >cancel</button>
+                </div>
+              </div>
+              <!-- Close button for the modal -->
+              <button data-bs-dismiss="modal" class="absolute top-5 right-5"><i class="fas fa-x fa-sm"></i></button>
+            </div>
           </div>
         </div>
-        <div class="px-5 py-3 space-y-3 text-sm">
-          <p class="flex items-center justify-between">
-            <span>Transaction ID</span><span class="text-right">{{ modalData.id }}</span>
-          </p>
-          <p class="flex items-center justify-between">
-            <span>Payment Type</span> <span class="text-right">{{ modalData.payment_type }}</span>
-          </p>
-          <p class="flex items-center justify-between">
-            <span>Amount</span> <span class="text-right">{{ modalData.amount }} </span>
-          </p>
-          <p class="flex items-center justify-between">
-            <span>Date</span> <span class="text-right">{{ modalData.date }}</span>
-          </p>
-          <p class="flex items-center justify-between">
-            <span>Status</span> <span class="text-right">{{ modalData.status }}</span>
-          </p>
-          <div class="flex items-center justify-between mt-72">
-            <button (click)="showConfirmationModal = true"
-            class="btn rounded-md p-1.5"
-            >Confirm Payment</button>
-             <button class="btn btnn text-right rounded-md p-1.5"
-             (click)="showPaymentModal = true"
-             >cancel</button>
-          </div>
-        </div>
-        <!-- Close button for the modal -->
-        <button (click)="closeModal()" class="absolute top-5 right-5"><i class="fas fa-x fa-sm"></i></button>
       </div>
     </div>
+    <!-- <div class="custom-modal"> -->
+
   </div>
   <!-- Cancel Payment Order -->
-  <div *ngIf="showPaymentModal" class="cancel-payment-modal">
-    <div class="flex md:w-2/6">
-      <div class="bg-white relative w-full rounded-xl">
-        <div class="primarydark rounded-t-xl py-9">
-          <h3 class="font-semibold px-3">Cancel Payment Order</h3>
-          <div class="text-center space-y-3 py-6">
-            <p>Amount</p>
-            <h3 class="font-bold text-3xl">{{ modalData.amount }}</h3>
+  <div *ngIf="showPaymentModal" class="modal fade" id="canceldrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="canceldropLabel" aria-hidden="true">
+
+
+    <div>
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="bg-white relative w-full rounded-xl">
+            <div class="primarydark rounded-t-xl py-9">
+              <h3 class="font-semibold px-3">Cancel Payment Order</h3>
+              <div class="text-center space-y-3 py-6">
+                <p>Amount</p>
+                <h3 class="font-bold text-3xl">{{ modalData.amount }}</h3>
+              </div>
+            </div>
+            <div class="px-5 py-3 space-y-3 text-sm">
+              <p class="flex items-center justify-between">
+                <span>Transaction ID</span><span class="text-right">{{ modalData.id }}</span>
+              </p>
+              <p class="flex items-center justify-between">
+                <span>Payment Type</span> <span class="text-right">{{ modalData.payment_type }}</span>
+              </p>
+              <p class="flex items-center justify-between">
+                <span>Amount</span> <span class="text-right">{{ modalData.amount }} </span>
+              </p>
+              <p class="flex items-center justify-between">
+                <span>Date</span> <span class="text-right">{{ modalData.date }}</span>
+              </p>
+              <p class="flex items-center justify-between">
+                <span>Status</span> <span class="text-right">{{ modalData.status }}</span>
+              </p>
+              <h4 class="text-xl font-medium mt-4">Cancellation note</h4>
+            <div class="flex justify-center items-center mt-2">
+              <textarea class="" rows="4" cols="50" placeholder="Short description" style="width: 100%;"></textarea>
+            </div>
+            <div
+            class="mt-3 border rounded-3 d-flex justify-content-center"
+            style="background: #c1cf65"
+          >
+            <button
+              class="btnn py-1 fw-medium"
+              style="color: black !important"
+              type="submit"
+              data-bs-toggle="modal" data-bs-target="#confirmdrop"
+              
+            >
+              Submit
+            </button>
+            </div>
           </div>
+          <!-- Close button for the modal -->
+          <!-- <button (click)="closePaymentModal()" class="absolute top-5 right-5" ><i class="fas fa-x fa-sm"></i></button> -->
         </div>
-        <div class="px-5 py-3 space-y-3 text-sm">
-          <p class="flex items-center justify-between">
-            <span>Transaction ID</span><span class="text-right">{{ modalData.id }}</span>
-          </p>
-          <p class="flex items-center justify-between">
-            <span>Payment Type</span> <span class="text-right">{{ modalData.payment_type }}</span>
-          </p>
-          <p class="flex items-center justify-between">
-            <span>Amount</span> <span class="text-right">{{ modalData.amount }} </span>
-          </p>
-          <p class="flex items-center justify-between">
-            <span>Date</span> <span class="text-right">{{ modalData.date }}</span>
-          </p>
-          <p class="flex items-center justify-between">
-            <span>Status</span> <span class="text-right">{{ modalData.status }}</span>
-          </p>
-          <h4 class="text-xl font-medium mt-4">Cancellation note</h4>
-        <div class="flex justify-center items-center mt-2">
-          <textarea class="" rows="4" cols="50" placeholder="Short description" style="width: 100%;"></textarea>
-        </div>
-        <div
-        class="mt-3 border rounded-3 d-flex justify-content-center"
-        style="background: #c1cf65"
-      >
-        <button
-          class="btnn py-1 fw-medium"
-          style="color: black !important"
-          type="submit"
-          (click)="confirmModal()"
-        >
-          Submit
-        </button>
         </div>
       </div>
-      <!-- Close button for the modal -->
-      <button (click)="closePaymentModal()" class="absolute top-5 right-5"><i class="fas fa-x fa-sm"></i></button>
     </div>
   </div>
-<!-- Are you sure modal -->
-  <div *ngIf="showConfirmationModal" class="confirm-modal">
 
-      <div class="p-3">
-  
-        <div class="modal-body mt-1">
-            <div class="flex flex-col items-center justify-center">
-      <img src="assets/images/image-34.png" alt="image30" class="img-fluid">
-  
-      <div class="text-center">
-        <h3 class="font-medium text-2xl">This action cannot be undone, do<br> you want to proceed?</h3>
-  
-        <div class="flex items-center justify-between">
-  
-          <div
-          class="mt-3 mb-3 border rounded-3 flex justify-center">
-          <button
-            class="btn py-1 font-medium"
-            style="color: black !important"
-            type="submit"
-            (click)="openSuccessModal()"
-          >
-            Yes, Continue
-          </button>
-        </div>
-        <div class="mt-3 mb-3 border rounded-3 flex justify-center" style="background: #c1cf65; width: 8rem;">
-  
-          <button
-            class="btnn py-1 font-medium"
-            style="color: black !important"
-            type="submit"
-            (click)="closeConfirmationModal()"
-          >
-            No, Go Back
-          </button>
-        </div>
-        </div>
-      </div>
+   
+<!-- Are you sure modal -->
+  <div  class="modal" id="confirmdrop" data-bs-keyboard="false" tabindex="-1" aria-labelledby="confirmdropLabel" aria-hidden="true">
+
+    <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+      <div class="modal-body mt-1">
+        <div class="flex flex-col items-center justify-center">
+  <img src="assets/images/image-34.png" alt="image30" class="img-fluid">
+
+  <div class="text-center">
+    <h3 class="font-medium text-2xl">This action cannot be undone, do<br> you want to proceed?</h3>
+
+    <div class="flex items-center justify-between">
+
+      <div
+      class="mt-3 mb-3 border rounded-3 flex justify-center">
+      <button
+        class="btn py-1 font-medium"
+        style="color: black !important"
+        type="submit"
+        data-bs-toggle="modal" data-bs-target="#successdrop"
+      >
+        Yes, Continue
+      </button>
     </div>
-  
-        </div>
-  
-      </div>
+    <div class="mt-3 mb-3 border rounded-3 flex justify-center" style="background: #c1cf65; width: 8rem;">
+
+      <button
+        class="btnn py-1 font-medium"
+        style="color: black !important"
+        type="submit"
+        data-bs-dismiss="modal"
+      >
+        No, Go Back
+      </button>
+    </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+    </div>
+  </div>
+
   </div>
   <!-- PAYMent Success -->
-  <div *ngIf="showSuccessModal" class="success-modal">
+    <div class="modal fade" id="successdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="successdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content p-3">
   
-        <div class="modal-body mt-1">
+        <div class="modal-body mt-1" data-bs-dismiss="modal">
             <div class="flex flex-col items-center justify-center">
       <img src="../../assets/images/image 30.png" alt="image30" class="img-fluid">
   
