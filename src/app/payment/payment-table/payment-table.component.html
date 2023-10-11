@@ -2,15 +2,15 @@
     <link rel="stylesheet" href="https://bit.ly/stylesheeet" />
   </head>
   
-  <div class="p-3 flex items-center justify-between">
-    <h3 class="font-semibold">Transactions</h3>
+  <div class="p-3 flex flex-col sm:flex-row items-center justify-between">
+    <h3 class="font-semibold sm:mb-0">Transactions</h3>
     <div class="flex items-center space-x-2.5 text-sm bg-gray-100 py-3 px-3 rounded-xl">
       <i class="fa-duotone fa-magnifying-glass fa-xl"></i>
       <input class="bg-transparent focus:outline-none" type="text" [(ngModel)]="searchQuery" (input)="filterData()"
         placeholder="Search..." />
     </div>
-        <div class="button-con flex p-3">
-              <div class="d-flex shadow-none p-2 bg-body-tertiary rounded-6 bg-body-tertiary mx-4 mt-4" style="width: 15rem;">
+        <div class="button-con flex p-3 sm:mt-4 items-center sm:space-x-4">
+              <div class="d-flex shadow-none p-2 bg-body-tertiary rounded-6 bg-body-tertiary mx-4 " style="width: 15rem;">
 
                 <select class="form-select bg-body-tertiary">
                   <option>Filter By: Date</option>
@@ -20,7 +20,7 @@
                 </select>
               </div>
 
-              <button type="button" class="btn btn-primary ml-4 mt-4">Export</button>
+              <button type="button" class="btn btn-primary ml-4">Export</button>
         </div>
   </div>
   

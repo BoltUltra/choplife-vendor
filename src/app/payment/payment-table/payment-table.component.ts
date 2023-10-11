@@ -128,10 +128,21 @@ export class PaymentTableComponent implements OnInit {
 
   closePaymentModal(){
     this.showPaymentModal = false;
+
+    setTimeout(() => {
+      this.closeSuccessModal();
+    }, 5000);
   }
 
   openSuccessModal() {
     this.showSuccessModal = true;
+  }
+
+  
+
+
+  closeSuccessModal(){
+    this.showSuccessModal = false;
   }
 
 }
