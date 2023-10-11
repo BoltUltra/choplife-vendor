@@ -59,9 +59,9 @@ export class PaymentComponent implements OnInit, AfterViewInit {
         ]
       },
       options: {
-        responsive: true,
+        responsive: false,
         maintainAspectRatio: false,
-        cutout: 80,
+        // cutout: 80,
       }
     });
   }

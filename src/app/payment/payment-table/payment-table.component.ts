@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/lib/data.service';
 
+
 @Component({
   selector: 'app-payment-table',
   templateUrl: './payment-table.component.html',
@@ -19,6 +20,7 @@ export class PaymentTableComponent implements OnInit {
   showPaymentModal = false;
   showConfirmationModal = false;
   showSuccessModal = false;
+  
 
   constructor(private dataService: DataService) {}
 
@@ -111,7 +113,7 @@ export class PaymentTableComponent implements OnInit {
 
   confirmModal() {
     this.showConfirmationModal = true;
-    this.showPaymentModal = false;
+    this.showModal = false;
   }
 
   closeConfirmationModal() {
@@ -126,10 +128,21 @@ export class PaymentTableComponent implements OnInit {
 
   closePaymentModal(){
     this.showPaymentModal = false;
+
+    setTimeout(() => {
+      this.closeSuccessModal();
+    }, 5000);
   }
 
   openSuccessModal() {
     this.showSuccessModal = true;
+  }
+
+  
+
+
+  closeSuccessModal(){
+    this.showSuccessModal = false;
   }
 
 }
