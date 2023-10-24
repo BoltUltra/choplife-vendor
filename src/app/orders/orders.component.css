@@ -45,8 +45,8 @@
 }
 
 .paddedbtn{
-    padding-left: 3.5rem !important;
-    padding-right: 3.5rem !important;
+    padding-left: 2.6rem !important;
+    padding-right: 2.6rem !important;
 }
 
 .marginsize{
@@ -65,6 +65,44 @@
 /* fonts end */
 
 
+
+@media(max-width:2560px){
+
+    .collapse:not(.show){
+      display: contents !important;
+    }
+  
+    .navbar-collapse{
+      flex-basis: 0 !important;
+      /* flex-grow: 1 !important; */
+    }
+  }
+
+
+
+  
+  @media (max-width: 475px) {
+
+    .collapse:not(.show){
+      display: none !important;
+
+    }
+
+    .navbar-collapse{
+      flex-basis: 100% !important;
+      flex-grow: 1 !important;
+    }
+
+    .displayed {
+      
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9999;
+      overflow: hidden;
+    }
+}
 
 
 

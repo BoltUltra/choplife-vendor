@@ -31,3 +31,47 @@
 .f9{
     font-size: 12px;
 }
+
+
+@media(max-width:2560px){
+
+    .collapse:not(.show){
+      display: contents !important;
+    }
+  
+    .navbar-collapse{
+      flex-basis: 0 !important;
+      /* flex-grow: 1 !important; */
+    }
+  }
+
+
+
+  
+  @media (max-width: 475px) {
+
+
+    .buttons-size{
+        width: 100% !important;
+    }
+
+    .collapse:not(.show){
+      display: none !important;
+
+    }
+
+    .navbar-collapse{
+      flex-basis: 100% !important;
+      flex-grow: 1 !important;
+    }
+
+    .displayed {
+      
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9999;
+      overflow: hidden;
+    }
+}

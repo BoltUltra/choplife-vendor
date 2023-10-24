@@ -22,3 +22,25 @@
 .body {
   background-color: #f8f9f9;
 }
+
+
+@media (max-width: 767px) {
+  .sidebar {
+    display: none;
+  }
+  .md\:flex {
+    display: flex;
+  }
+  .md\:space-x-5 > * + * {
+    margin-left: 1.25rem;
+  }
+  .md\:block {
+    display: block;
+  }
+  .md\:h-screen {
+    height: 100vh;
+  }
+  .md\:hidden {
+    display: none;
+  }
+}

@@ -4,20 +4,20 @@
 
 <div class="row" >
   <aside class="col-3">
-    <app-sidebar></app-sidebar>
+    <app-sidebar  class="displayed collapse navbar-collapse" id="navbarNavAltMarkup"></app-sidebar>
   </aside>
   
 
   <div class="md:w-3/4 md:py-10 md:pr-10 md:h-screen overflow-y-scroll body" style="background-color: #f8f9f9;">
-<app-header>
+<app-header class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
   <p>Food Manager</p>
 </app-header>
 
 <div class="md:ml-5 md:mr-10 mx-3 mt-6 bg-white rounded-xl p-6">
-  <div class="bg-primary-light flex justify-between items-center p-6 rounded-xl">
+  <div class="bg-primary-light flex justify-between items-center p-6 rounded-xl flex-wrap">
     <div class="space-y-3 md:w-3/4">
       <h3 class="font-bold text-2xl">Food Manager</h3>
-      <p class="text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+      <p class="text-sm mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
         labore et dolore magna aliqua. Ut enim ad minim veniam</p>
     </div>
     <div>

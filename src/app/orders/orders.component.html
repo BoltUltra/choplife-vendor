@@ -1,6 +1,7 @@
 <div class="row" >
-  <aside class="col-3">
-    <app-sidebar></app-sidebar>
+  <aside class="col-md-3 col-12">
+    <app-sidebar class="displayed collapse navbar-collapse" id="navbarNavAltMarkup"></app-sidebar>
+    <!-- <app-sidebar ></app-sidebar> -->
   </aside>
   
 
@@ -9,56 +10,60 @@
 
 
 
-<app-header> Order Menu </app-header>
+<app-header  class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"> Order Menu </app-header>
 
 <section *ngIf="activeform !== 'verification'">
   <div class="container">
     <div class="d-flex flex-col">
-      <div
-        class="shadow mt-2 rounded-3"
-        style="background-color: rgba(242, 255, 205, 1)"
-      >
-        <div class="d-flex align-items-center">
-          <img
-            src="../../assets/images/YoPrint-Order-Management-System 1.png"
-            alt=""
-            class="imgup"
-          />
 
-          <p class="text-start ms-4">
-            ChopLife’s
-            <span class="fw-semibold">Order Management System.</span> A tool
-            built to help <br />vendors keep track of the orders and manage the
-            entire order <br />process efficiently.
-          </p>
+      <div class="flex-wrap">
 
-          <div
-            class="shadow-none mb-4 bg-tertiary border rounded-4 ms-auto mx-5 mt-4"
-            style="width: 15rem !important"
-          >
-            <div class="row">
-              <div
-                class="col-6 rounded-4 btn-primary"
-                [ngClass]="{ 'bg-primary': activeform === 'verification' }"
-              >
-                <p
-                  class="text-center mt-1 textsize py-1"
-                  (click)="activeform = 'vendor'"
+        <div
+          class="shadow mt-2 rounded-3"
+          style="background-color: rgba(242, 255, 205, 1)"
+        >
+          <div class="d-flex align-items-center flex-wrap">
+            <img
+              src="../../assets/images/YoPrint-Order-Management-System 1.png"
+              alt=""
+              class="imgup"
+            />
+  
+            <p class="text-start ms-4">
+              ChopLife’s
+              <span class="fw-semibold">Order Management System.</span> A tool
+              built to help <br />vendors keep track of the orders and manage the
+              entire order <br />process efficiently.
+            </p>
+  
+            <div
+              class="shadow-none mb-4 bg-tertiary border rounded-4 ms-auto mx-5 mt-4"
+              style="width: 15rem !important"
+            >
+              <div class="row">
+                <div
+                  class="col-6 rounded-4 btn-primary"
+                  [ngClass]="{ 'bg-primary': activeform === 'verification' }"
                 >
-                  Table
-                </p>
-              </div>
-
-              <div
-                class="col-6 rounded-4"
-                
-              >
-                <p
-                  class="text-center mt-1 textsize text-muted py-1 text-nowrap"
-                  (click)="activeform = 'verification'"
+                  <p
+                    class="text-center mt-1 textsize py-1"
+                    (click)="activeform = 'vendor'"
+                  >
+                    Table
+                  </p>
+                </div>
+  
+                <div
+                  class="col-6 rounded-4"
+                  
                 >
-                  Kitchen View
-                </p>
+                  <p
+                    class="text-center mt-1 textsize text-muted py-1 text-nowrap"
+                    (click)="activeform = 'verification'"
+                  >
+                    Kitchen View
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -99,10 +104,10 @@
 
                 <div class="d-flex align-items-center marginsize">
                   <div class="d-flex flex-col">
-                    <p>{{ items.new }}</p>
+                    <p class="text-nowrap">{{ items.new }}</p>
                     <p class="fw-semibold">{{ items.count }}</p>
                   </div>
-                  <div class="line ms-5">
+                  <div class="line mx-auto">
                     <img
                       src="../../assets/images/Vector 3146.svg"
                       alt=""
@@ -124,7 +129,7 @@
       </div>
       
 
-      <div class="shadow mb-5 bg-body-tertiary rounded-3">
+      <div class="shadow mb-5 bg-body-tertiary rounded-3 table-responsive" >
 
         <div class="p-3 flex items-center justify-between">
           <h3 class="font-semibold"></h3>
@@ -144,8 +149,8 @@
             <option>Last 90 days</option>
           </select>
         </div>
+        <button type="button" class="btn btn-primary">Export</button>
 
-          <button type="button" class="btn btn-primary">Export</button>
 
         </div>
         
@@ -153,7 +158,7 @@
           <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
               <div class="overflow-hidden">
-                <table class="min-w-full text-center text-sm font-light">
+                <table class="table-responsive  text-center text-sm font-light">
                   <thead class="border-b bg-gray-200 font-medium dark:border-neutral-500 dark:text-neutral-800">
                     <tr>
                       <th scope="col" class=" px-6 py-4 cursor-pointer" (click)="sort('id')">Order Reference</th>
@@ -427,7 +432,7 @@
 
   <div class="mt-2 row shadow p-3 bg-white rounded-3 container ms-3" style="width: 97%;">
 
-    <div class="col-4 p-3">
+    <div class="col-12 col-lg-4 p-3">
       <div class="d-flex flex-column">
         <div class="d-flex justify-content-between border rounded-3 bg-gray-200 p-3 mb-2">
           <p>
@@ -519,11 +524,11 @@
             <p>x5</p>
           </div>
 
-          <div class="d-flex mb-3 justify-content-between">
+          <div class="d-flex mb-3 justify-content-between flex-wrap">
 
-            <button type="button" class="btn btn-danger">Cancel</button>
+            <button type="button" class="btn btn-danger mb-2">Cancel</button>
             
-            <button type="button" class="btn btn-primary paddedbtn rounded-4">Start</button>
+            <button type="button" class="btn btn-primary paddedbtn rounded-4" style="width: fit-content;">Start</button>
           </div>
 
 
@@ -533,7 +538,7 @@
       </div>
       
     </div>
-    <div class="col-4 p-3">
+    <div class="col-12 col-lg-4 p-3">
       <div class="d-flex flex-column">
         <div class="d-flex justify-content-between border rounded-3 bg-gray-200 p-3 mb-2">
           <p>
@@ -612,11 +617,11 @@
             <p>x5</p>
           </div>
 
-          <div class="d-flex mb-3 justify-content-between">
+          <div class="d-flex mb-3 justify-content-between flex-wrap">
 
-            <button type="button" class="btn btn-danger">Cancel</button>
+            <button type="button" class="btn btn-danger mb-2">Cancel</button>
             
-            <button type="button" class="btn paddedbtn rounded-4 text-white" style="background-color: #0b7238;">Ready</button>
+            <button type="button" class="btn paddedbtn rounded-4 text-white" style="background-color: #0b7238; width: fit-content;">Ready</button>
           </div>
 
 
@@ -643,7 +648,7 @@
     </div>
     
     
-    <div class="col-4 p-3">
+    <div class="col-12 col-lg-4 p-3">
       <div class="d-flex flex-column">
         <div class="d-flex justify-content-between border rounded-3 bg-gray-200 p-3 mb-2">
           <p>
@@ -713,11 +718,11 @@
             <p>x5</p>
           </div>
 
-          <div class="d-flex mb-3 justify-content-between">
+          <div class="d-flex mb-3 justify-content-between flex-wrap">
 
-            <button type="button" class="btn btn-danger">Cancel</button>
+            <button type="button" class="btn btn-danger mb-2">Cancel</button>
             
-            <button type="button" class="btn btn-dark text-white rounded-4 paddedbtn">Completed</button>
+            <button type="button" class="btn btn-dark text-white rounded-4 paddedbtn" style="width: fit-content;">Completed</button>
           </div>
 
 

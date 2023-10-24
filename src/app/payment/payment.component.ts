@@ -11,6 +11,13 @@ export class PaymentComponent implements OnInit, AfterViewInit {
 
   constructor() {}
 
+
+  isNavbarCollapsed = true;
+
+  toggleNavbar() {
+    this.isNavbarCollapsed = !this.isNavbarCollapsed;
+  }
+
   ngOnInit(): void {
     // Data for the bar chart
     const data = {
